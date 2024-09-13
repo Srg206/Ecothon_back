@@ -16,21 +16,21 @@ jobs:
     steps:
       # Шаг 1: Клонирование репозитория
       - name: Checkout repository
-        uses: actions/checkout@latest
+        uses: actions/checkout@v3
 
       # Шаг 2: Настройка Go
       - name: Set up Go
-        uses: actions/setup-go@latest
+        uses: actions/setup-go@v4
         with:
           go-version: '1.23'
 
-      # Шаг 3: Установка зависимостей
-      - name: Install dependencies
-        run: go mod download
+      # # Шаг 3: Установка зависимостей
+      # - name: Install dependencies
+      #   run: go mod download
 
-      # Шаг 4: Сборка Go-приложения
-      - name: Build the Go app
-        run: go build -o myapp .
+      # # Шаг 4: Сборка Go-приложения
+      # - name: Build the Go app
+      #   run: go build -o myapp .
 
       # Шаг 5: Логинимся в Docker Hub (если используем Docker Hub)
       - name: Log in to Docker Hub
