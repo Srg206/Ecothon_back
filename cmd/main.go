@@ -18,7 +18,7 @@ func main() {
 
 	// Запускаем HTTP сервер на порту 8080
 	fmt.Println("Сервер запущен  ")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+	if err := http.ListenAndServe(":8001", nil); err != nil {
 		fmt.Println("Ошибка запуска сервера:", err)
 	}
 }
