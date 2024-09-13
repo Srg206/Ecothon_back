@@ -45,7 +45,7 @@ jobs:
 
       # Шаг 7: Публикация Docker-образа в Docker Hub
       - name: Push Docker image to Docker Hub
-        run: docker tag myapp:latest your_dockerhub_username/myapp:latest && docker push your_dockerhub_username/myapp:latest
+        run: docker tag myapp:latest srg206/myapp:latest && docker push srg206/myapp:latest
 
   deploy:
     needs: build
@@ -59,7 +59,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            docker pull srg/myapp:latest
+            docker pull srg206/myapp:latest
             docker stop myapp || true
             docker rm myapp || true
-            docker run -d --name myapp -p 8000:8000 srg/myapp:latest
+            docker run -d --name myapp -p 8000:8000 srg206/myapp:latest
