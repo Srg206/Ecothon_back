@@ -16,14 +16,15 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-    
-    - name: Copy files to VPS
-      run: | 
-        ssh-keygen -t rsa
-        ssh-copy-id root@${{secrets.SERVER_HOST}}
-        scp -r * root@${{secrets.SERVER_HOST}}:/root/ecothone
+    - name: Setup SSH Key
+      run: |
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
 
-        
+    - name: Copy files to VPS
+      run: scp -r * root@${{ secrets.SERVER_HOST }}:/root/ecothone
+          
   deploy: 
     needs: build
     runs-on: ubuntu-latest
