@@ -16,16 +16,18 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
-    - name: Setup SSH Key
+
+    - name: Setup SSH
       run: |
-        touch ~/.ssh/id_rsa
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+        mkdir -p ~/.ssh       # Создаем директорию .ssh, если она не существует
+        ssh-keygen -t rsa -b 4096 -f ~/.ssh/id_rsa -N ""  # Генерация SSH-ключа
+        ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts  # Сканирование и добавление ключа сервера в known_hosts
+        # Копируем публичный ключ на сервер
+        sshpass -p '${{ secrets.SERVER_PASSWORD }}' ssh-copy-id -o StrictHostKeyChecking=no root@${{ secrets.SERVER_HOST }}
 
     - name: Copy files to VPS
       run: scp -r * root@${{ secrets.SERVER_HOST }}:/root/ecothone
-          
+
   deploy: 
     needs: build
     runs-on: ubuntu-latest
