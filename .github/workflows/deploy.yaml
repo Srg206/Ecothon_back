@@ -18,8 +18,8 @@ jobs:
       uses: actions/checkout@v3
     
     - name: Copy files to VPS
-      run: sudo apt update
-        sudo apt install sshpass
+      run: sudo apt update &
+        sudo apt install sshpass &
         sshpass -p ${{ secrets.VPS_PASSWORD}} scp -r * root@${{secrets.SERVER_HOST}}:/root/ecothone
 
 
