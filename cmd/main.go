@@ -13,6 +13,7 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+
 	// Создаем новый роутер и связываем его с хендлером
 	http.HandleFunc("/", helloHandler)
 
