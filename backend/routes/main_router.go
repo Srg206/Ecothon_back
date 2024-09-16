@@ -1,27 +1,34 @@
-package main_router
+package routes
 
 import (
 	"backend/routes/handlers/auth"
 	"backend/routes/handlers/personalise"
+	workwithevents "backend/routes/handlers/work_with_events"
 
 	"github.com/gin-gonic/gin"
 )
 
-var router = gin.Default()
+var Router = gin.Default()
 
 func InitRoutes() {
 
 	//AUTH
-	auth_route := router.Group("/auth")
+	auth_route := Router.Group("/auth")
 	auth_route.POST("/create_user", func(c *gin.Context) { auth.Create_user(c) })
 	auth_route.POST("/login", func(c *gin.Context) { auth.Login(c) })
 
 	//Personalise
-	personalise_route := router.Group("/personalise")
-
+	personalise_route := Router.Group("/personalise")
 	personalise_route.POST("/save_interests", func(c *gin.Context) { personalise.Save_interests(c) })
-	// addUserRoutes(v1)
-	// addPingRoutes(v1)
 
-	// addPingRoutes(v2)
+	// Event
+	event_route := Router.Group("/event")
+	event_route.POST("/add_event", func(c *gin.Context) { workwithevents.Comment_event(c) })
+	event_route.GET("/get_events/ :amount", func(c *gin.Context) { workwithevents.Comment_event(c) })
+	event_route.GET("/get_event/ :event_id", func(c *gin.Context) { workwithevents.Comment_event(c) })
+
+	event_route.GET("/like_event/ :event_id", func(c *gin.Context) { workwithevents.Like_event(c) })
+	event_route.POST("/comment_event/ :event_id", func(c *gin.Context) { workwithevents.Comment_event(c) })
+	event_route.GET("get_comments/ :amount", func(c *gin.Context) { workwithevents.Get_Comments(c) })
+
 }
