@@ -1,0 +1,16 @@
+
+@use "../../styles/colors.scss" as *;
+
+.btnGreenReverse{
+    border: 2px solid $btnGreenReverse_color_border;
+    border-radius: 30px;
+    padding: 10px 30px;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+
+    &:hover{
+        background-color: $btnGreenReverse_color_border;
+    }
+}

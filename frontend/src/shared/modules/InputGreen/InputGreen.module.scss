@@ -1,0 +1,15 @@
+
+@use "../../styles/colors.scss" as *;
+
+.inputGreen {
+    border: 2px solid $inputForm_color_border;
+    border-radius: 6px;
+    font-size: 20px;
+    font-weight: 400px;
+    padding: 12px 30px;
+    width: 100%;
+
+    &::placeholder{
+        color: $input_placeholder_color;
+    }
+}

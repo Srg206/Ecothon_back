@@ -1,0 +1,18 @@
+
+@use "../../styles/colors.scss" as *;
+
+.navLink{
+    color: $color_link;
+    font-size: 20px;
+    line-height: 23.54px;
+    text-decoration: none;
+
+    &:hover{
+        color: $color_link_hover;
+        border-bottom: 1px solid $color_link_hover;
+    }
+}
+
+.active{
+    color: $color_link_active;
+}
