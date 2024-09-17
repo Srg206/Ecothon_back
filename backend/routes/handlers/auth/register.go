@@ -20,7 +20,7 @@ func Create_user(c *gin.Context) {
 	}
 
 	if err := workwithdb.Insert_User(user); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err})
+		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
 	var Access_token string
@@ -30,10 +30,10 @@ func Create_user(c *gin.Context) {
 	errref, Refresh_token := token.CreateJWT(user.Email, time.Now().Unix())
 
 	if errref != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": errref})
+		c.JSON(http.StatusBadRequest, gin.H{"error": errref.Error()})
 	}
 	if erra != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": erra})
+		c.JSON(http.StatusBadRequest, gin.H{"error": erra.Error()})
 	}
 
 	token.TStrg.Save(Access_token, Refresh_token)
