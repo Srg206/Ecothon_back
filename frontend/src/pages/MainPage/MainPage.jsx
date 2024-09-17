@@ -22,7 +22,7 @@ function MainPage() {
 
   return (
     <div className={cl.mainPage}>
-
+      
       <div className={`${cl.mainPage__spots} ${cl.spot1}`}><span></span></div>
       <div className={`${cl.mainPage__spots} ${cl.spot2}`}><span></span></div>
 
