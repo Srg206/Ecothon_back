@@ -1,0 +1,11 @@
+
+.profileBtn{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    .profileBtn__username{
+        font-size: 20px;
+        font-weight: 600;
+    }
+}

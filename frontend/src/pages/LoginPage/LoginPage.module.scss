@@ -1,0 +1,45 @@
+
+@use "../../shared/styles/colors.scss" as *;
+
+.loginPage{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow-y: hidden;
+
+    > *:not(:last-child){
+        margin-bottom: 31px;
+    }
+
+    .loginPage__spots{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+
+        span{
+            width: 901px;
+            height: 901px;
+            background: radial-gradient(circle, $spot_color 0%, #fff 30%);
+            border-radius: 50%;
+        }
+    }
+
+    .spot1{
+        top: 150px;
+        left: -350px;
+    }
+
+    .spot2{
+        width: 742px;
+        height: 676px;
+        top: -40px;
+        left: 630px;
+    }
+}

@@ -3,10 +3,10 @@ import cl from './FormRegistration.module.scss'
 import BtnGreen from '../../shared/modules/BtnGreen/BtnGreen'
 import InputGreen from '../../shared/modules/InputGreen/InputGreen'
 
-function FormRegistration() {
+function FormRegistration({title}) {
   return (
     <div className={cl.formRegistration}>
-        <div className={cl.formRegistration__title}>Регистрируйся и получи больше возможностей</div>
+        <div className={cl.formRegistration__title}>{title}</div>
         <div className={cl.formRegistration__inputs}>
             <InputGreen placeholder="Почта"/>
             <InputGreen placeholder="Пароль"/>

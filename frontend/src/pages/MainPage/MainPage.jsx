@@ -35,7 +35,7 @@ function MainPage() {
           </div>
         </div>
         <div className={cl.promo__form}>
-          <FormRegistration/>
+          <FormRegistration title="Регистрируйся и получи больше возможностей"/>
         </div>
       </div>
 
