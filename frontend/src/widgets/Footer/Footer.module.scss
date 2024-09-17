@@ -1,0 +1,49 @@
+
+@use "../../shared/styles/colors.scss" as *;
+@use "../../shared/styles/fonts.scss" as *;
+
+.footer{
+    margin-top: 100px;
+    padding-top: 40px;
+    padding-bottom: 70px;
+    border-top: 1px solid $color_border_footer;
+
+    .footer__content{
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+
+        font-family: "Inter";
+        font-size: 20px;
+        font-weight: 400;
+
+        .content__nav{
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            
+            > *{
+                text-decoration: none;
+                color: #000;
+            }
+        }
+
+        .content__contacts{
+
+            > *:not(:last-child){
+                margin-bottom: 20px;
+            }
+
+            .contacts__title{
+                cursor: default;
+            }
+
+            .contacts__socials{
+                display: flex;
+                gap: 12px;
+                cursor: pointer;
+            }
+        }
+    }
+
+}

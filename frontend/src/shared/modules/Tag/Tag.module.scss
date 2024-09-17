@@ -1,0 +1,12 @@
+
+@use "../../styles/colors.scss" as *;
+@use "../../styles/fonts.scss" as *;
+
+.tag{
+    padding: 4px 18px;
+    border: 2px solid $base_color;
+    border-radius: 20px;
+    font-size: 18px;
+    font-weight: 400;
+    font-family: "Inter";
+}

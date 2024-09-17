@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 
 //* COMPONENTS
 import Header from '../widgets/Header/Header'
+import Footer from '../widgets/Footer/Footer';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace/>}/>
           <Route path="/" element={<MainPage/>}/>
         </Routes>
+        <Footer/>
       </div>
     </div>
   );

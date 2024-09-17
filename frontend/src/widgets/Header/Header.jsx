@@ -5,17 +5,19 @@ import BtnGreenReverse from '../../shared/modules/BtnGreenReverse/BtnGreenRevers
 import { useLocation } from 'react-router-dom'
 
 import support from '../../shared/assets/support.svg'
+import LogoComponent from '../../shared/modules/LogoComponent/LogoComponent'
 
 function Header() {
 
     let location = useLocation();
 
+    const navigateToLogin = () => {
+        console.log("LOGIN NAVIGATE");
+    }
+
   return (
     <div className={cl.header}>
-        <div className={cl.header__logo}>
-            <div className={cl.headerLogo__img}/>
-            <span className={cl.headerLogo__text}>Экопросвет</span>
-        </div>
+        <LogoComponent/>
         <nav className={cl.header__nav}>
             <NavLink text="Главная" to="/" isActive={location.pathname === "/"}/>
             <NavLink text="Блог" to="/blog" isActive={location.pathname === "/blog"}/>
@@ -26,7 +28,7 @@ function Header() {
                 <img src={support} alt="support_btn" />
             </div>
             <div className={cl.headerLogin__btn}>
-                <BtnGreenReverse>Войти</BtnGreenReverse>
+                <BtnGreenReverse onClick={navigateToLogin}>Войти</BtnGreenReverse>
             </div>
         </div>
     </div>

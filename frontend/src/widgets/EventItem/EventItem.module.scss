@@ -1,0 +1,40 @@
+
+@use "../../shared/styles/fonts.scss" as *;
+
+.eventItem{
+    width: 440px;
+
+    .eventItem__image{
+        border-radius: 10px;
+        margin-bottom: 20px;
+        width: inherit;
+        height: 350px;
+        background-color: grey;
+    }
+
+    .eventItem__content{
+        font-family: "Inter";
+        width: inherit;
+
+        > *:not(:last-child){
+            margin-bottom: 12px;
+        }
+
+        .content__tags{
+            display: flex;
+            gap: 12px;
+        }   
+        .content__title{
+            font-size: 20px;
+            font-weight: 500;
+        }
+
+        .content__description{
+            color: #5A5A5A;
+            font-size: 18px;
+            font-weight: 400;
+            word-break: break-all;
+            text-overflow: ellipsis;
+        }
+    }
+}

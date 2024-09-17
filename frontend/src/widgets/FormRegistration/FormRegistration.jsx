@@ -8,8 +8,9 @@ function FormRegistration() {
     <div className={cl.formRegistration}>
         <div className={cl.formRegistration__title}>Регистрируйся и получи больше возможностей</div>
         <div className={cl.formRegistration__inputs}>
-            <InputGreen placeholder="Введите ваше имя"/>
-            <InputGreen placeholder="Введите ваш email"/>
+            <InputGreen placeholder="Почта"/>
+            <InputGreen placeholder="Пароль"/>
+            <InputGreen placeholder="Подтверждение пароля"/>
         </div>
         <div className={cl.formRegistration__btn}>
             <BtnGreen width="265px">Зарегистрироваться</BtnGreen>
