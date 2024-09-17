@@ -93,6 +93,12 @@
     .mainPage__events{
         margin-top: 130px;
 
+        .events__nav{
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+        }
+
         .events__items{
             display: flex;
             flex-wrap: wrap;

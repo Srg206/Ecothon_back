@@ -10,6 +10,25 @@
         width: inherit;
         height: 350px;
         background-color: grey;
+        position: relative;
+        cursor: pointer;
+
+        .eventItemImage__like{
+            position: absolute;
+            bottom: 18px;
+            right: 18px;
+            opacity: 0.6;
+            cursor: pointer;
+
+            &:hover{
+                opacity: 1;
+            }
+
+            .active{
+                filter: invert(56%) sepia(42%) saturate(5590%) hue-rotate(329deg) brightness(90%) contrast(100%);
+                opacity: 1;
+            }
+        }
     }
 
     .eventItem__content{

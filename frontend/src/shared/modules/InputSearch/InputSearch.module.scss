@@ -1,0 +1,13 @@
+
+@use "../../styles/colors.scss" as *;
+
+.inputSearch{
+    > input{
+        width: 340px;
+        padding: 10px 30px;
+        border-radius: 30px;
+        border: 2px solid $inputSearch_color_border;
+        outline: none;
+        font-size: 18px;
+    }
+}

@@ -7,54 +7,67 @@ import fake from '../../fake/fakeData'
 import FormRegistration from '../../widgets/FormRegistration/FormRegistration'
 import EventItem from '../../widgets/EventItem/EventItem';
 import AdBanner from '../../widgets/AdBanner/AdBanner';
+import Filter from '../../shared/modules/Filter/Filter';
+import InputSearch from '../../shared/modules/InputSearch/InputSearch';
 
 function MainPage() {
 
   const [events, setEvents] = useState();
   const [recentEvents, setRecentEvents] = useState();
+  const [topics, setTopics] = useState();
+  const [isLoginUser] = useState(false);
 
   useEffect(() => {
     const responseEvents = fake.getEvents();
     const responseRecentEvents = fake.getRecentEvents();
+    const responseTopics = fake.getTopics();
     setEvents(responseEvents);
     setRecentEvents(responseRecentEvents);
+    setTopics(responseTopics);
   }, [])
 
   return (
     <div className={cl.mainPage}>
       
-      <div className={`${cl.mainPage__spots} ${cl.spot1}`}><span></span></div>
-      <div className={`${cl.mainPage__spots} ${cl.spot2}`}><span></span></div>
+      {
+        !isLoginUser && (
+          <div>
+            <div className={`${cl.mainPage__spots} ${cl.spot1}`}><span></span></div>
+            <div className={`${cl.mainPage__spots} ${cl.spot2}`}><span></span></div>
 
-      <div className={cl.mainPage__promo}>
-        <div className={cl.promo__content}>
-          <h1 className={cl.promoContent__title}>экопросвет</h1>
-          <div className={cl.promoContent__description}>
-            <p>Платформа, на которой собраны все экологические события Москвы.</p>
-            <p>Мы объединяем неравнодушных людей!</p>
+            <div className={cl.mainPage__promo}>
+              <div className={cl.promo__content}>
+                <h1 className={cl.promoContent__title}>экопросвет</h1>
+                <div className={cl.promoContent__description}>
+                  <p>Платформа, на которой собраны все экологические события Москвы.</p>
+                  <p>Мы объединяем неравнодушных людей!</p>
+                </div>
+              </div>
+              <div className={cl.promo__form}>
+                <FormRegistration title="Регистрируйся и получи больше возможностей"/>
+              </div>
+            </div>
+        
+        
+            <div className={cl.mainPage__statistics}>
+              <div className={cl.statistic}>
+                <p>К нам уже присоединились</p>
+                <h1 className={cl.statistic__number}>10000</h1>
+                <p>жителей города</p>
+              </div>
+              <div className={cl.statistic}>
+                <p>Ежегодно проводится</p>
+                <h1 className={cl.statistic__number}>5000</h1>
+                <p>экологических мероприятий</p>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className={cl.promo__form}>
-          <FormRegistration title="Регистрируйся и получи больше возможностей"/>
-        </div>
-      </div>
-
-      <div className={cl.mainPage__statistics}>
-        <div className={cl.statistic}>
-          <p>К нам уже присоединились</p>
-          <h1 className={cl.statistic__number}>10000</h1>
-          <p>жителей города</p>
-        </div>
-        <div className={cl.statistic}>
-          <p>Ежегодно проводится</p>
-          <h1 className={cl.statistic__number}>5000</h1>
-          <p>экологических мероприятий</p>
-        </div>
-      </div>
-
+        )
+      }
       <div className={cl.mainPage__events}>
         <div className={cl.events__nav}>
-          
+          <Filter topics={topics}/>
+          <InputSearch/>
         </div>
         <div className={cl.events__items}>
           {

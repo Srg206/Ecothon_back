@@ -12,11 +12,16 @@ $input_placeholder_color: #ADB5BD;
 $inputForm_color_border: #60D7BB;
 $inputForm_color_border_hover: #42B99D;
 
+$inputSearch_color_border: #D9D9D9;
+$inputSearch_color_border_hover: #BBBBBB;
+
 //* BUTTONS
 $btnGreen_background_color: #60D7BB;
 $btnGreen_color_hover: #42B99D;
 
 $btnGreenReverse_color_border: #60D7BB;
+
+$btnFilter_color_border: #D9D9D9;
 
 //* LINKS
 $color_link: #000;
@@ -25,3 +30,7 @@ $color_link_active: #42B99D;
 
 //* FOOTER
 $color_border_footer: #60D7BB;
+
+//* DROPDOWN LIST
+$color_dropDown_hover: #42B99D;
+$color_dropDown_active: #CFF3EB;

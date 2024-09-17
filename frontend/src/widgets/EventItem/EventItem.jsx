@@ -1,6 +1,7 @@
 import React from 'react'
 import cl from './EventItem.module.scss'
 import Tag from '../../shared/modules/Tag/Tag'
+import heart from '../../shared/assets/heart.svg'
 
 function EventItem({item}) {
 
@@ -10,6 +11,9 @@ function EventItem({item}) {
     <div className={cl.eventItem}>
         <div className={cl.eventItem__image}>
             <img src={image} alt={title} />
+            <div className={cl.eventItemImage__like}>
+                <img src={heart} alt="favorite btn" />
+            </div>
         </div>
         <div className={cl.eventItem__content}>
             <div className={cl.content__tags}>  

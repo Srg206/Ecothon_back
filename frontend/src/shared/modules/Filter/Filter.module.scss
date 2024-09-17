@@ -1,0 +1,33 @@
+
+@use '../../styles/colors.scss' as *;
+
+.filter{
+    position: relative;
+    cursor: pointer;
+
+    .filter__btn{
+        border: 2px solid $btnFilter_color_border;
+        border-radius: 30px;
+        padding: 10px 30px;
+        width: 122px;
+        font-size: 18px;
+        font-weight: 500;
+    }
+
+    .filter__dropDownList{
+        position: absolute;
+        top: 50px;
+        width: 310px;
+        padding: 20px;
+        border: 2px solid $btnFilter_color_border;
+        background-color: #fff;
+        border-radius: 10px;
+        z-index: 2;
+
+        .dropDownList__separator{
+            border: 1px solid $btnFilter_color_border;
+            height: 1px;
+            width: 100%;
+        }
+    }    
+}
