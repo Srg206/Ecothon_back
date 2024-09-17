@@ -1,7 +1,7 @@
 version: "3.8"
 services:
   postgres:
-    container_name: postgres
+    container_name: ecoton_postgres
     image: postgres:16.2
     restart: unless-stopped
     env_file:
@@ -19,7 +19,7 @@ services:
       start_period: 10s
 
   adminer:
-    container_name: adminer-container
+    container_name: ecoton_adminer-container
     image: adminer:latest
     restart: unless-stopped
     ports:

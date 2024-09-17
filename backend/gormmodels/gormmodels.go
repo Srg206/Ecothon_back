@@ -11,7 +11,7 @@ package gormmodels
 
 type User struct {
 	ID       uint   `gorm:"primarykey"; column:id`
-	Email    string `gorm: column:email`
+	Email    string `gorm:"unique"; email:id`
 	Username string `gorm: column:username`
 	Password string `gorm: column:password`
 }

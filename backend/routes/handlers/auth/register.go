@@ -1,15 +1,13 @@
 package auth
 
 import (
-	"backend/config"
 	"backend/schemes"
+	"backend/utils/token"
 	"backend/workwithdb"
-	"fmt"
 	"net/http"
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/golang-jwt/jwt/v5"
 )
 
 func Create_user(c *gin.Context) {
@@ -20,23 +18,27 @@ func Create_user(c *gin.Context) {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 		return
 	}
-	claims := jwt.MapClaims{
-		"email": user.Email,
-		"exp":   time.Now().Add(time.Hour * 24).Unix(), // токен истечет через 24 часа
-	}
 
-	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-	tokenString, err := token.SignedString([]byte(config.CurConfig.SECRET_JWT_KEY))
-	if err != nil {
-		fmt.Println("Ошибка при подписании токена:", err)
-		return
-	}
 	if err := workwithdb.Insert_User(user); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"error": err})
 		return
 	}
+	var Access_token string
+	var Refresh_token string
+
+	erra, Access_token := token.CreateJWT(user.Email, time.Now().Unix())
+	errref, Refresh_token := token.CreateJWT(user.Email, time.Now().Unix())
+
+	if errref != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": errref})
+	}
+	if erra != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"error": erra})
+	}
+
+	token.TStrg.Save(Access_token, Refresh_token)
 
 	c.JSON(http.StatusOK, gin.H{
-		"token": tokenString,
+		"token": Access_token,
 	})
 }

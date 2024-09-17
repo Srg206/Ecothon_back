@@ -9,12 +9,14 @@ import (
 )
 
 type Config struct {
-	POSTGRES__HOST     string
-	POSTGRES__PORT     int
-	POSTGRES__DB       string
-	POSTGRES__PASSWORD string
-	POSTGRES__USER     string
-	SECRET_JWT_KEY     string
+	POSTGRES__HOST            string
+	POSTGRES__PORT            int
+	POSTGRES__DB              string
+	POSTGRES__PASSWORD        string
+	POSTGRES__USER            string
+	SECRET_JWT_KEY            string
+	ACCESS_TOKEN_EXPIRE_TIME  int64
+	REFRESH_TOKEN_EXPIRE_TIME int64
 }
 
 var CurConfig = Config{}
@@ -31,4 +33,7 @@ func LoadConfigs() {
 	CurConfig.POSTGRES__PASSWORD = os.Getenv("POSTGRES_PASSWORD")
 	CurConfig.POSTGRES__USER = os.Getenv("POSTGRES_USER")
 	CurConfig.SECRET_JWT_KEY = os.Getenv("SECRET_JWT_KEY")
+	CurConfig.ACCESS_TOKEN_EXPIRE_TIME, _ = strconv.ParseInt(os.Getenv("ACCESS_TOKEN_EXPIRE_TIME"), 10, 64)
+	CurConfig.REFRESH_TOKEN_EXPIRE_TIME, _ = strconv.ParseInt(os.Getenv("REFRESH_TOKEN_EXPIRE_TIME"), 10, 64)
+
 }
