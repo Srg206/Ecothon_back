@@ -1,13 +1,11 @@
 name: CI/CD Pipeline
 
-# Указываем триггеры: при пуше в ветку main и создании pull request'ов
 on:
   workflow_dispatch:
     inputs:
       tag:
         description: 'Tag to deploy'
         required: true
-
 
 jobs:
   deploy:
@@ -24,13 +22,12 @@ jobs:
 
     - name: Copy files to VPS
       run: |
-        run: echo "${{ secrets.FRONTEND_SSH_KEY }}" > eco
-        shell: bash
-        scp -i ~/.ssh/eco -r /frontend root@${{ secrets.FRONTEND_IP }}:/root
+        scp -r -o StrictHostKeyChecking=no ./frontend root@${{ secrets.FRONTEND_IP }}:/root
+        # Убедитесь, что путь к вашим файлам указан правильно.
 
     - name: Restart service (if needed)
       run: |
-        ssh -i ~/.ssh/eco root@${{ secrets.FRONTEND_IP }} 
+        ssh -o StrictHostKeyChecking=no root@${{ secrets.FRONTEND_IP }} << 'EOF'
         cd frontend
         PORT=80 npm start
-
+        EOF
