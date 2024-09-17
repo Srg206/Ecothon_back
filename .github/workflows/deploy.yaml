@@ -1,0 +1,36 @@
+name: CI/CD Pipeline
+
+# Указываем триггеры: при пуше в ветку main и создании pull request'ов
+on:
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: 'Tag to deploy'
+        required: true
+
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Set up SSH
+      uses: webfactory/ssh-agent@v0.7.0
+      with:
+        ssh-private-key: ${{ secrets.FRONTEND_SSH_KEY }}
+
+    - name: Copy files to VPS
+      run: |
+        run: echo "${{ secrets.FRONTEND_SSH_KEY }}" > eco
+        shell: bash
+        scp -i ~/.ssh/eco -r /frontend root@${{ secrets.FRONTEND_IP }}:/root
+
+    - name: Restart service (if needed)
+      run: |
+        ssh -i ~/.ssh/eco root@${{ secrets.FRONTEND_IP }} 
+        cd frontend
+        PORT=80 npm start
+
