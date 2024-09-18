@@ -1,4 +1,5 @@
 from recsys import RecSys
+from fuzzy import FuzzySearch
 
 # пример данных о пользователях
 users_data = [
@@ -65,3 +66,11 @@ recsys.add_event(new_event)
 new_user_id = '6558909875674563'
 new_recommendations = recsys.hybrid_recommendation(new_user_id, top_n=5)
 print(f'Рекомендации для нового пользователя {new_user_id}: {new_recommendations}')
+
+fs = FuzzySearch(events_data)
+
+# пример нечеткого поиска по запросу
+fs.search('конференция', limit=10)
+
+# пример добавления нового события в систему нечеткого поиска
+fs.add_event(new_event)
