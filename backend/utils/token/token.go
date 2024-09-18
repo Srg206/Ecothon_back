@@ -64,22 +64,23 @@ func CreateJWT(email string, tm int64) (error, string) {
 }
 
 func DecodeJWT(tokenString string) (string, int64, error) {
-	token, err := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
+	token, _ := jwt.Parse(tokenString, func(token *jwt.Token) (interface{}, error) {
 		if _, ok := token.Method.(*jwt.SigningMethodHMAC); !ok {
 			return nil, fmt.Errorf("unexpected signing method: %v", token.Header["alg"])
 		}
 		return config.CurConfig.SECRET_JWT_KEY, nil
 	})
 
-	if err != nil {
-		return "", 0, err
-	}
-
-	if claims, ok := token.Claims.(jwt.MapClaims); ok && token.Valid {
-		email := claims["email"].(string)
-		etime := claims["email"].(int64)
-		return email, etime, nil
-	} else {
-		return "", 0, fmt.Errorf("invalid token")
-	}
+	// if err != nil {
+	// 	return "", 0, err
+	// }
+	fmt.Println(string(token.Claims.(jwt.MapClaims)["email"].(string)))
+	return string(token.Claims.(jwt.MapClaims)["email"].(string)), int64(token.Claims.(jwt.MapClaims)["created_at"].(float64)), nil
+	// if claims, ok := token.Claims.(jwt.MapClaims); ok {
+	// 	email := claims["email"].(string)
+	// 	etime := claims["created_at"].(int64)
+	// 	return email, etime, nil
+	// } else {
+	// 	return "dkdkdkdkkdkd", 0, fmt.Errorf("invalid token")
+	// }
 }

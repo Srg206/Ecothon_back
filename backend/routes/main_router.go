@@ -18,6 +18,7 @@ func InitRoutes() {
 	auth_route := Router.Group("/auth")
 	auth_route.POST("/create_user", func(c *gin.Context) { auth.Create_user(c) })
 	auth_route.POST("/login", func(c *gin.Context) { auth.Login(c) })
+	auth_route.POST("/save_user_info", func(c *gin.Context) { auth.SaveUserInfo(c) })
 	auth_route.POST("/validate_cookies", func(c *gin.Context) { auth.ValidateCoockies(c) })
 	//Personalise
 	personalise_route := Router.Group("/personalise")
