@@ -1,0 +1,58 @@
+
+
+.formSurvey{
+    width: 800px;
+    padding: 40px 50px;
+    background-color: #fff;
+    border-radius: 30px;
+
+    .formSurvey__title{
+        font-size: 24px;
+        margin-bottom: 12px;
+        text-align: center;
+    }
+
+    .formSurvey__subtitle{
+        font-size: 18px;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .formSurvey__choices{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+
+    .formSurvey__actions{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 48px;
+
+        .actions__skip{
+            font-size: 18px;
+            color: #BBB;
+            text-align: right;
+            cursor: pointer;
+        }
+
+        .actions__next{
+            cursor: pointer;
+        }
+
+        .actions__last{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 60%;
+
+            .actions__back{
+                transform: rotate(180deg);
+                filter: brightness(0) saturate(100%) invert(75%) sepia(10%) saturate(9%) hue-rotate(66deg) brightness(97%) contrast(93%);
+                cursor: pointer;
+            }
+        }
+    }
+}

@@ -27,15 +27,15 @@ function Header() {
                 isLoginUser 
                 ?
                 <div className={cl.header__nav}>
-                    <NavLink text="Главная" to="/" isActive={location.pathname === "/"}/>
-                    <NavLink text="Мои события" to="/" isActive={location.pathname === "/myevents"}/>
-                    <NavLink text="Баллы" to="/blog" isActive={location.pathname === "/blog"}/>
+                    <NavLink text="Главная" path="/" isActive={location.pathname === "/"}/>
+                    <NavLink text="Мои события" path="/myevents" isActive={location.pathname === "/myevents"}/>
+                    <NavLink text="Баллы" path="/blog" isActive={location.pathname === "/blog"}/>
                 </div>
                 :
                 <div className={cl.header__nav}>
-                    <NavLink text="Главная" to="/" isActive={location.pathname === "/"}/>
-                    <NavLink text="Блог" to="/blog" isActive={location.pathname === "/blog"}/>
-                    <NavLink text="Опросы" to="/surveys" isActive={location.pathname === "/surveys"}/>
+                    <NavLink text="Главная" path="/" isActive={location.pathname === "/"}/>
+                    <NavLink text="Блог" path="/blog" isActive={location.pathname === "/blog"}/>
+                    <NavLink text="Опросы" path="/surveys" isActive={location.pathname === "/surveys"}/>
                 </div>
             }
                  

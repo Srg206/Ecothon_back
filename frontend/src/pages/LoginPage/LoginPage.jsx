@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import cl from './LoginPage.module.scss'
+import { useNavigate } from 'react-router-dom'
 
 //* COMPONENTS
 import LogoComponent from '../../shared/modules/LogoComponent/LogoComponent'
@@ -7,10 +8,13 @@ import FormLogin from '../../widgets/FormLogin/FormLogin'
 import FormRegistration from '../../widgets/FormRegistration/FormRegistration'
 import FormDataInfo from '../../widgets/FormDataInfo/FormDataInfo'
 import FormSurvey from '../../widgets/FormSurvey/FormSurvey'
+import data from '../../data/data'
 
 function LoginPage() {
 
-    const [step, setStep] = useState('login');
+    const navigate = useNavigate();
+    const [step, setStep] = useState('survey');
+    const interests = data.getInterests();
 
     // Функция для перехода на форму регистрации
     const handleLoginSuccess = () => {
@@ -28,6 +32,7 @@ function LoginPage() {
     };
 
     const handleFinishSuccess = () => {
+      navigate('/');
       console.log('Data info form submitted successfully');
     };
 
@@ -46,7 +51,7 @@ function LoginPage() {
           : step === 'dataInfo'
           ? <FormDataInfo onDataInfoSuccess={handleDataInfoSuccess} />
           : step === 'survey'
-          ? <FormSurvey onSurveySuccess={handleFinishSuccess}/>
+          ? <FormSurvey onSurveySuccess={handleFinishSuccess} interests={interests}/>
           : null
         }
         
