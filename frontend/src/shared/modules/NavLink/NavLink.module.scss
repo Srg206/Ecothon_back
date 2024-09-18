@@ -1,11 +1,13 @@
 
 @use "../../styles/colors.scss" as *;
+@use "../../styles/fonts.scss" as *;
 
 .navLink{
     color: $color_link;
     font-size: 20px;
     line-height: 23.54px;
     text-decoration: none;
+    font-family: "Gilroy Medium";
 
     &:hover{
         color: $color_link_hover;

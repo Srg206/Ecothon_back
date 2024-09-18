@@ -26,10 +26,10 @@ function Footer() {
             </div>
             <div className={cl.content__contacts}>
                 <div className={cl.contacts__title}>Контактная информация</div>
-                <div>.......@mail.ru</div>
-                <div>+7...............</div>
+                <div>depmospriroda@mos.ru</div>
+                <div>+7 (495) 690-58-48</div>
                 <div className={cl.contacts__socials}>
-                    <img src={telegram} alt="telegram icon" />
+                    <a href='https://t.me/mospriroda'><img src={telegram} alt="telegram icon" /></a>
                     <img src={email} alt="email icon" />
                     <img src={phone} alt="phone icon" />
                 </div>

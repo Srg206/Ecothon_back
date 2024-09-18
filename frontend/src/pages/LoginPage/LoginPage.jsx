@@ -13,7 +13,7 @@ import data from '../../data/data'
 function LoginPage() {
 
     const navigate = useNavigate();
-    const [step, setStep] = useState('survey');
+    const [step, setStep] = useState('login');
     const interests = data.getInterests();
 
     // Функция для перехода на форму регистрации
@@ -47,7 +47,7 @@ function LoginPage() {
           step === 'login'
           ? <FormLogin onLoginSuccess={handleLoginSuccess} />
           : step === 'registration'
-          ? <FormRegistration onRegistrationSuccess={handleRegistrationSuccess} />
+          ? <FormRegistration title="Регистрация" onRegistrationSuccess={handleRegistrationSuccess} />
           : step === 'dataInfo'
           ? <FormDataInfo onDataInfoSuccess={handleDataInfoSuccess} />
           : step === 'survey'

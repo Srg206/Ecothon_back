@@ -15,7 +15,7 @@ function MainPage({events}) {
 
   const [recentEvents, setRecentEvents] = useState();
   const [topics, setTopics] = useState();
-  const [isLoginUser] = useState(false);
+  const [isLoginUser] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
@@ -86,7 +86,7 @@ function MainPage({events}) {
               <>
                 <EventItem item={item} key={index}/>
                 {
-                  index === 5 && (
+                  index === 5 && !isLoginUser && (
                     <AdBanner />
                   )
                 }

@@ -1,3 +1,6 @@
+
+@use "../../shared/styles/fonts.scss" as *;
+
 .eventItemPage{
     margin-top: 60px;
 
@@ -6,12 +9,40 @@
         gap: 50px;
 
         .eventItemPage__image{
+            border-radius: 10px;
+            margin-bottom: 20px;
             width: 440px;
             height: 440px;
-            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            
+            .eventItemPageImage{
+                width: 440px;
+                height: 440px;
+                border-radius: 10px;
+            }
+
+            .eventItemImage__like{
+                position: absolute;
+                bottom: 18px;
+                right: 18px;
+                opacity: 0.6;
+                cursor: pointer;
+    
+                &:hover{
+                    opacity: 1;
+                }
+    
+                .active{
+                    filter: invert(56%) sepia(42%) saturate(5590%) hue-rotate(329deg) brightness(90%) contrast(100%);
+                    opacity: 1;
+                }
+            }
         }
 
         .eventItemPage__content{
+            
+            width: 100%;
             
             > *:not(:last-child){
                 margin-bottom: 50px;
@@ -24,7 +55,7 @@
 
                 .top__title{
                     font-size: 32px;
-                    font-weight: 600;
+                    font-family: "Gilroy Medium";
                 }
     
                 .top__tags{
@@ -38,7 +69,6 @@
                     }
                     .info__address, .info__date{
                         font-size: 20px;
-                        font-weight: 400;
                         color: #5A5A5A;
                     }
                 }   
@@ -54,7 +84,6 @@
                     margin-bottom: 30px;
                     font-size: 18px;
                     color: #5A5A5A;
-                    font-weight: 400;
                     display: flex;
                     align-items: center;
                     gap: 20px;
@@ -70,13 +99,12 @@
 
             .info__title{
                 font-size: 22px;
-                font-weight: 500;
+                font-family: "Gilroy Medium";
                 margin-bottom: 20px;
             }
 
             .info__subtitle{
                 font-size: 20px;
-                font-weight: 400;
                 color: #5A5A5A;
             }
 

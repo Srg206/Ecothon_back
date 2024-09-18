@@ -1,6 +1,7 @@
 
 import eventImage from '../shared/assets/event.png'
-import userAvatar from '../shared/assets/userAvatar.jpg'
+import eventImage2 from '../shared/assets/event2.png'
+import userAvatar from '../shared/assets/profile.svg'
 
 export default class fake{
 
@@ -17,7 +18,7 @@ export default class fake{
             { username: "Пользователь 1", comment: "Зелёный Марш — это то, что я давно искала! Я была в восторге от организации и количества участников. Мы не только высадили деревья, но и узнали много нового о городской экологии. В следующем году обязательно снова приду!", avatar: userAvatar },
             { username: "Пользователь 2", comment: "Комментарий 2", avatar: userAvatar }
             ],
-            image: eventImage,
+            image: eventImage2,
             tags: ["тег1", "тег2", "тег3"],
             description: "Описание события 1...",
             isFavorite: false
@@ -32,7 +33,7 @@ export default class fake{
             { username: "Пользователь 1", comment: "Комментарий 1", avatar: userAvatar },
             { username: "Пользователь 3", comment: "Комментарий 3", avatar: userAvatar }
             ],
-            image: eventImage,
+            image: eventImage2,
             tags: ["тег4", "тег5", "тег6"],
             description: "Описание события 2...",
             isFavorite: true
@@ -47,7 +48,7 @@ export default class fake{
             { username: "Пользователь 4", comment: "Комментарий 4", avatar: userAvatar },
             { username: "Пользователь 5", comment: "Комментарий 5", avatar: userAvatar }
             ],
-            image: eventImage,
+            image: eventImage2,
             tags: ["тег7", "тег8", "тег9"],
             description: "Описание события 3...",
             isFavorite: false

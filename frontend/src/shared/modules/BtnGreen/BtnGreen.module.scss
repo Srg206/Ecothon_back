@@ -1,12 +1,13 @@
 
 @use "../../styles/colors.scss" as *;
+@use "../../styles/fonts.scss" as *;
 
 .btnGreen{
     background-color: $btnGreen_background_color;
     border-radius: 30px;
     padding: 10px 30px;
     font-size: 20px;
-    font-weight: 600;
+    font-family: "Gilroy Medium";
     text-align: center;
     cursor: pointer;
     color: #fff;

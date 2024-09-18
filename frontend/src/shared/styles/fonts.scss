@@ -1,10 +1,15 @@
 
 @font-face {
-    font-family: "Gilroy";
-    src: url('../fonts/Gilroy-Light.otf');
+    font-family: "Gilroy Regular";
+    src: url('../fonts/Gilroy-Regular.ttf');
 }
 
 @font-face {
-    font-family: "Inter";
-    src: url('../fonts/Inter-Regular.otf');
+    font-family: "Gilroy Medium";
+    src: url('../fonts/Gilroy-Medium.ttf');
+}
+
+@font-face {
+    font-family: "Gilroy Semibold";
+    src: url('../fonts/Gilroy-SemiBold.ttf');
 }

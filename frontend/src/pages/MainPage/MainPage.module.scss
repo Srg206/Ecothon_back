@@ -1,5 +1,6 @@
 
 @use "../../shared/styles/colors.scss" as *;
+@use "../../shared/styles/fonts.scss" as *;
 
 .mainPage{
     position: relative;
@@ -51,7 +52,7 @@
             .promoContent__title{
                 text-transform: uppercase;
                 font-size: 64px;
-                font-weight: 600;
+                font-family: "Gilroy Medium";
             }
 
             .promoContent__description{

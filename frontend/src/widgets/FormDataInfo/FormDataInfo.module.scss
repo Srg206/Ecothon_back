@@ -1,5 +1,6 @@
 
 @use "../../shared/styles/colors.scss" as *;
+@use "../../shared/styles/fonts.scss" as *;
 
 .formDataInfo{
     background-color: #fff;
@@ -9,7 +10,7 @@
 
     .formDataInfo__title{
         font-size: 24px;
-        font-weight: 400;
+        font-family: "Gilroy Medium";
         text-align: center;
         margin-bottom: 30px;
     }
@@ -37,7 +38,6 @@
         margin-bottom: 30px;
         font-size: 18px;
         color: #5A5A5A;
-        font-weight: 400;
         display: flex;
         align-items: center;
         gap: 20px;

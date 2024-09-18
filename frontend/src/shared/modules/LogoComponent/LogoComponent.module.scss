@@ -1,14 +1,15 @@
 
 @use "../../styles/colors.scss" as *;
+@use "../../styles/fonts.scss" as *;
 
 .logo{
     font-size: 24px;
-    font-weight: 600;
     line-height: 28.25px;
     display: flex;
     align-items: center;
     gap: 14px;
     cursor: default;
+    font-family: "Gilroy Medium";
 
     .logo__img{
         background-color: $color_logo;

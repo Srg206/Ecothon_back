@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import fake from '../../fake/fakeData';
 import BtnGreen from '../../shared/modules/BtnGreen/BtnGreen';
 import FeedbackItem from '../../widgets/FeedbackItem/FeedbackItem';
+import heart from '../../shared/assets/heart.svg'
 
 function EventItemPage() {
 
@@ -33,7 +34,10 @@ function EventItemPage() {
             :
             <div className={cl.eventItemPage__wrapper}>
                 <div className={cl.eventItemPage__image}>
-                    <img src={image} alt="icon" />
+                    <img className={cl.eventItemPageImage} src={image} alt={title} />
+                    <div className={cl.eventItemImage__like}>
+                        <img src={heart} alt="favorite btn" />
+                    </div>
                 </div>
                 <div className={cl.eventItemPage__content}>
                     <div className={cl.content__top}>

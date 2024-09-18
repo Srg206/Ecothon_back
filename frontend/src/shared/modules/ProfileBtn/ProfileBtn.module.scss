@@ -1,4 +1,6 @@
 
+@use "../../styles/fonts.scss" as *;
+
 .profileBtn{
     display: flex;
     align-items: center;
@@ -6,6 +8,6 @@
 
     .profileBtn__username{
         font-size: 20px;
-        font-weight: 600;
+        font-family: "Gilroy Medium";
     }
 }

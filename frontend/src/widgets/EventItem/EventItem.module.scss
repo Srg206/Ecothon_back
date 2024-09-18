@@ -7,11 +7,15 @@
     .eventItem__image{
         border-radius: 10px;
         margin-bottom: 20px;
-        width: inherit;
-        height: 350px;
-        background-color: grey;
         position: relative;
         cursor: pointer;
+
+        .eventItemImage{
+            width: 440px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
 
         .eventItemImage__like{
             position: absolute;
@@ -23,16 +27,15 @@
             &:hover{
                 opacity: 1;
             }
-
-            .active{
-                filter: invert(56%) sepia(42%) saturate(5590%) hue-rotate(329deg) brightness(90%) contrast(100%);
-                opacity: 1;
-            }
+        }
+        
+        .active{
+            filter: invert(56%) sepia(42%) saturate(5590%) hue-rotate(329deg) brightness(90%) contrast(100%);
+            opacity: 1;
         }
     }
 
     .eventItem__content{
-        font-family: "Inter";
         width: inherit;
 
         > *:not(:last-child){
@@ -45,7 +48,7 @@
         }   
         .content__title{
             font-size: 20px;
-            font-weight: 500;
+            font-family: "Gilroy Medium";
         }
 
         .content__description{

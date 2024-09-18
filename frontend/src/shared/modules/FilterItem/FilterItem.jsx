@@ -1,9 +1,9 @@
 import React from 'react'
 import cl from './FilterItem.module.scss'
 
-function FilterItem({title, isActive}) {
+function FilterItem({title, isSelected, onClick}) {
   return (
-    <div className={`${cl.filterItem} ${isActive ? cl.active : " "}`}>{title}</div>
+    <div className={`${cl.filterItem} ${isSelected ? cl.active : " "}`} onClick={onClick}>{title}</div>
   )
 }
 
