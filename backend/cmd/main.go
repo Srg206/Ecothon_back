@@ -13,5 +13,5 @@ func main() {
 	token.TStrg.Init()
 	initdb.MustInitDb()
 	routes.InitRoutes()
-	routes.Router.Run(":8000")
+	routes.Router.Run(":8002")
 }

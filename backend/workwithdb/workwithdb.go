@@ -27,7 +27,6 @@ func Insert_User(u schemes.User_to_Register) error {
 
 	newNote := gormmodels.User{
 		Email:    u.Email,
-		Username: u.Username,
 		Password: hash_pass,
 	}
 	result := initdb.DataBase.Create(&newNote)
@@ -63,4 +62,46 @@ func Login_by_pass(u schemes.User_to_Login) (error, string) {
 	} else {
 		return err, " "
 	}
+}
+
+func Save_User_Info(got_email string, u schemes.User_to_Save) error {
+	var user gormmodels.User
+
+	if err := initdb.DataBase.First(&user, "email = ?", got_email).Error; err != nil {
+		return err // Возвращаем ошибку, если пользователь не найден
+	}
+
+	// Изменение полей
+	user.Name = u.Name
+	user.Surname = u.Surname
+	user.Birthdate = u.Birthdate
+	user.Phone = u.Phone
+	user.Gender = u.Gender
+	user.SendNotifications = u.Send_notifications
+
+	// Сохранение изменений в БД
+	if err := initdb.DataBase.Save(&user).Error; err != nil {
+		return err
+	}
+
+	return nil
+}
+
+func Save_User_Interests(got_email string, intrsts string) error {
+	var user gormmodels.User
+
+	if err := initdb.DataBase.First(&user, "email = ?", got_email).Error; err != nil {
+		return err // Возвращаем ошибку, если пользователь не найден
+	}
+
+	// Изменение полей
+	fmt.Println(user.Email)
+	user.Interests = intrsts
+
+	// Сохранение изменений в БД
+	if err := initdb.DataBase.Save(&user).Error; err != nil {
+		return err
+	}
+
+	return nil
 }

@@ -21,7 +21,9 @@ func MustInitDb() {
 		log.Fatal("Could not connect to postgres !")
 	}
 
-	DataBase.AutoMigrate(&init_db.User{})
+	//DataBase.AutoMigrate(&init_db.User{}, &init_db.Comment{}, &init_db.Event{})
+	DataBase.AutoMigrate(&init_db.User{}, &init_db.Event{}, &init_db.UserEvent{}, init_db.Comment{})
+
 }
 
 func formdsn(c *config.Config) string {
