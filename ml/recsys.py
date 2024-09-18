@@ -13,10 +13,15 @@ class RecSys:
         self.events_data = events_data
         self.embedder = TextEmbedder()
         
+        self.event_ids = [event['event_id'] for event in self.events_data]
         self.event_names = [event['name'] for event in self.events_data]
         self.event_vectors = self.embedder.embed(self.event_names)
         
-        self.index = nmslib.init(method='hnsw', space='cosinesimil')
+        self.index = nmslib.init(
+            method='hnsw', 
+            space='cosinesimil'
+        )
+        
         self.index.addDataPointBatch(self.event_vectors)
         self.index.createIndex({'post': 2}, print_progress=True)
         
@@ -29,14 +34,15 @@ class RecSys:
 
     def create_interaction_matrix(self) -> pd.DataFrame:
         user_ids = [user['user_id'] for user in self.users_data]
-        event_names = [event['name'] for event in self.events_data]
+        event_ids = [event['event_id'] for event in self.events_data]
         
-        interaction_matrix = pd.DataFrame(0, index=user_ids, columns=event_names)
+        interaction_matrix = pd.DataFrame(0, index=user_ids, columns=event_ids)
         
         for user in self.users_data:
             for fav in user['favorites']:
-                if fav in interaction_matrix.columns:
-                    interaction_matrix.loc[user['user_id'], fav] = 1
+                event_id = next((event['event_id'] for event in self.events_data if event['name'] == fav), None)
+                if event_id and event_id in interaction_matrix.columns:
+                    interaction_matrix.loc[user['user_id'], event_id] = 1
                     
         return interaction_matrix
     
@@ -45,7 +51,7 @@ class RecSys:
         mean_vector = np.mean(search_vectors, axis=0).reshape(1, -1)
         
         indices, distances = self.index.knnQuery(mean_vector, k=top_n)
-        recommended_events = [self.events_data[i]['name'] for i in indices]
+        recommended_events = [self.events_data[i]['event_id'] for i in indices]
         return recommended_events
     
     def hybrid_recommendation(self, user_id: str, top_n: int = 5) -> List[str]:
@@ -56,25 +62,25 @@ class RecSys:
         user_idx = self.interaction_matrix.index.get_loc(user_id)
         collaborative_scores = np.dot(self.user_factors[user_idx], self.event_factors.T)
         
-        event_scores = {event['name']: collaborative_scores[i] for i, event in enumerate(self.events_data)}
+        event_scores = {event['event_id']: collaborative_scores[i] for i, event in enumerate(self.events_data)}
 
         for event in self.events_data:
             if event['category'] in user['interests']:
-                event_scores[event['name']] += 0.3
+                event_scores[event['event_id']] += 0.3
 
         for favorite in user['favorites']:
-            favorite_idx = [i for i, event in enumerate(self.events_data) if event['name'] == favorite]
-            if favorite_idx:
-                favorite_vector = self.event_vectors[favorite_idx[0]].reshape(1, -1)
+            favorite_event = next((event for event in self.events_data if event['name'] == favorite), None)
+            if favorite_event:
+                favorite_vector = self.event_vectors[self.event_ids.index(favorite_event['event_id'])].reshape(1, -1)
                 indices, distances = self.index.knnQuery(favorite_vector, k=top_n)
                 for i in indices:
-                    event_scores[self.events_data[i]['name']] += 0.5
+                    event_scores[self.events_data[i]['event_id']] += 0.5
 
         combined_scores = defaultdict(float)
-        for event in content_recommendations:
-            combined_scores[event] += 0.5
-        for event, score in event_scores.items():
-            combined_scores[event] += score
+        for event_id in content_recommendations:
+            combined_scores[event_id] += 0.5
+        for event_id, score in event_scores.items():
+            combined_scores[event_id] += score
             
         recommended_events = sorted(combined_scores.items(), key=lambda x: x[1], reverse=True)[:top_n]
         return [event[0] for event in recommended_events]
@@ -84,8 +90,9 @@ class RecSys:
         
         new_row = pd.DataFrame(0, index=[new_user['user_id']], columns=self.interaction_matrix.columns)
         for fav in new_user['favorites']:
-            if fav in self.interaction_matrix.columns:
-                new_row.loc[new_user['user_id'], fav] = 1
+            event_id = next((event['event_id'] for event in self.events_data if event['name'] == fav), None)
+            if event_id and event_id in self.interaction_matrix.columns:
+                new_row.loc[new_user['user_id'], event_id] = 1
         self.interaction_matrix = pd.concat([self.interaction_matrix, new_row])
         
         new_user_factors = self.svd.transform(new_row)
@@ -100,7 +107,7 @@ class RecSys:
         self.index.addDataPoint(len(self.event_vectors) - 1, new_event_vector[0])
         self.index.createIndex({'post': 2}, print_progress=True)
         
-        self.interaction_matrix[new_event['name']] = 0
+        self.interaction_matrix[new_event['event_id']] = 0
 
         self.svd = TruncatedSVD(n_components=self.n_components)
         self.user_factors = self.svd.fit_transform(self.interaction_matrix)
