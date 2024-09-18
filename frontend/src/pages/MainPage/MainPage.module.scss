@@ -11,34 +11,32 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        z-index: -1;
-
-        span{
-            width: 754px;
-            height: 754px;
-            background: radial-gradient(circle, $spot_color 0%, #fff 40%);
-            border-radius: 50%;
-        }
     }
     
     .spot1{
-        top: 110px;
-        left: 96px;
+        top: 164px;
+        left: 80px;
+        z-index: -3;
+        > img{
+            width: 754px;
+            height: 754px;
+        }
     }
 
     .spot2{
-        width: 629px;
-        height: 573px;
-        top: -50px;
-        right: -200px;
-        z-index: -2;
+        top: -11px;
+        right: -710px;
+        z-index: -3;
+        > img{
+            width: 629px;
+            height: 573px;
+        }
     }
 
     .mainPage__promo{
         padding-top: 164px;
         display: flex;
-        justify-content: space-between;
-        gap: 20px;
+        gap: 170px;
 
         .promo__content{
             
@@ -74,6 +72,7 @@
         border-bottom: 1px solid $base_color;
         margin-top: 167px;
         padding: 25px 30px;
+        background-color: #fff;
         
         .statistic{
             display: flex;

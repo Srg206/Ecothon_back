@@ -10,6 +10,9 @@ import FormDataInfo from '../../widgets/FormDataInfo/FormDataInfo'
 import FormSurvey from '../../widgets/FormSurvey/FormSurvey'
 import data from '../../data/data'
 
+import ellipse1 from '../../shared/assets/Ellipse49.svg'
+import ellipse2 from '../../shared/assets/Ellipse50.svg'
+
 function LoginPage() {
 
     const navigate = useNavigate();
@@ -39,8 +42,8 @@ function LoginPage() {
   return (
     <div className={cl.loginPage}>
         
-        <div className={`${cl.loginPage__spots} ${cl.spot1}`}><span></span></div>
-        <div className={`${cl.loginPage__spots} ${cl.spot2}`}><span></span></div>
+        <div className={`${cl.loginPage__spots} ${cl.spot1}`}><img src={ellipse1} alt="ellipse1" /></div>
+        <div className={`${cl.loginPage__spots} ${cl.spot2}`}><img src={ellipse2} alt="ellipse2" /></div>
 
         <LogoComponent/>
         {

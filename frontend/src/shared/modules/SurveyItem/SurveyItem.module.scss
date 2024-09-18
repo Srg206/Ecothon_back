@@ -1,5 +1,6 @@
 
 @use "../../styles/colors.scss" as *;
+@use "../../styles/fonts.scss" as *;
 
 .surveyItem {
     border-radius: 10px;
@@ -13,9 +14,11 @@
       color: #fff;
       position: absolute;
       bottom: 15px;
-      left: 30px;
-      right: auto;
+      left: 15px;
+      right: 15px;
       z-index: 2;
+      text-align: center;
+      font-family: "Gilroy Medium";
     }
   
     .surveyItem__check {

@@ -3,6 +3,8 @@ import cl from './MainPage.module.scss'
 
 import { Link, useLocation } from 'react-router-dom'
 import fake from '../../fake/fakeData'
+import ellipse1 from '../../shared/assets/Ellipse49.svg'
+import ellipse2 from '../../shared/assets/Ellipse50.svg'
 
 //* COMPONENTS
 import FormRegistration from '../../widgets/FormRegistration/FormRegistration'
@@ -15,7 +17,7 @@ function MainPage({events}) {
 
   const [recentEvents, setRecentEvents] = useState();
   const [topics, setTopics] = useState();
-  const [isLoginUser] = useState(true);
+  const [isLoginUser] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -31,8 +33,8 @@ function MainPage({events}) {
       {
         !isLoginUser && (
           <div>
-            <div className={`${cl.mainPage__spots} ${cl.spot1}`}><span></span></div>
-            <div className={`${cl.mainPage__spots} ${cl.spot2}`}><span></span></div>
+            <div className={`${cl.mainPage__spots} ${cl.spot1}`}><img src={ellipse1} alt='ellipse'/></div>
+            <div className={`${cl.mainPage__spots} ${cl.spot2}`}><img src={ellipse2} alt='ellipse'/></div>
 
             <div className={cl.mainPage__promo}>
               <div className={cl.promo__content}>
