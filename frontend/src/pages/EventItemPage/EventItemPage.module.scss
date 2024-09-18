@@ -1,0 +1,92 @@
+.eventItemPage{
+    margin-top: 60px;
+
+    .eventItemPage__wrapper{
+        display: flex;
+        gap: 50px;
+
+        .eventItemPage__image{
+            width: 440px;
+            height: 440px;
+            border-radius: 10px;
+        }
+
+        .eventItemPage__content{
+            
+            > *:not(:last-child){
+                margin-bottom: 50px;
+            }
+
+            .content__top{
+                > *:not(:last-child){
+                    margin-bottom: 16px;
+                }
+
+                .top__title{
+                    font-size: 32px;
+                    font-weight: 600;
+                }
+    
+                .top__tags{
+                    display: flex;
+                    gap: 12px;
+                }
+                
+                .top__info{
+                    > *:not(:last-child){
+                        margin-bottom: 8px;
+                    }
+                    .info__address, .info__date{
+                        font-size: 20px;
+                        font-weight: 400;
+                        color: #5A5A5A;
+                    }
+                }   
+            }
+
+            .info__organization{
+                margin-bottom: 30px;
+            }
+
+            .info__description{
+                .pushNotification{
+                    margin-top: 30px;
+                    margin-bottom: 30px;
+                    font-size: 18px;
+                    color: #5A5A5A;
+                    font-weight: 400;
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+
+                    .pushNotification__checkbox{
+                        width: 24px;
+                        height: 24px;
+                        border: 2px solid #d9d9d9;
+                        border-radius: 5px;
+                    }
+                }
+            }
+
+            .info__title{
+                font-size: 22px;
+                font-weight: 500;
+                margin-bottom: 20px;
+            }
+
+            .info__subtitle{
+                font-size: 20px;
+                font-weight: 400;
+                color: #5A5A5A;
+            }
+
+            .content__feedback{
+                .feedback__items{
+                    > *:not(:last-child){
+                        margin-bottom: 20px;
+                    }
+                }
+            }
+        }
+    }
+}

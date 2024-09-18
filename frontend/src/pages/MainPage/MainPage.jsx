@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import cl from './MainPage.module.scss'
 
+import { Link, useLocation } from 'react-router-dom'
 import fake from '../../fake/fakeData'
 
 //* COMPONENTS
@@ -10,18 +11,16 @@ import AdBanner from '../../widgets/AdBanner/AdBanner';
 import Filter from '../../shared/modules/Filter/Filter';
 import InputSearch from '../../shared/modules/InputSearch/InputSearch';
 
-function MainPage() {
+function MainPage({events}) {
 
-  const [events, setEvents] = useState();
   const [recentEvents, setRecentEvents] = useState();
   const [topics, setTopics] = useState();
-  const [isLoginUser] = useState(false);
+  const [isLoginUser] = useState(true);
+  const location = useLocation();
 
   useEffect(() => {
-    const responseEvents = fake.getEvents();
     const responseRecentEvents = fake.getRecentEvents();
     const responseTopics = fake.getTopics();
-    setEvents(responseEvents);
     setRecentEvents(responseRecentEvents);
     setTopics(responseTopics);
   }, [])
@@ -64,8 +63,20 @@ function MainPage() {
           </div>
         )
       }
+
       <div className={cl.mainPage__events}>
-        <div className={cl.events__nav}>
+        {
+          isLoginUser && (
+            <div className={cl.events__nav}>
+                <Link to="/" className={`${cl.eventsNav__link} ${location.pathname === "/" ? cl.activeLink : " "}`}>События</Link>
+                <Link to="/map" className={`${cl.eventsNav__link} ${location.pathname === "/map" ? cl.activeLink : " "}`}>Карта</Link>
+                <Link to="/blog" className={`${cl.eventsNav__link} ${location.pathname === "/blog" ? cl.activeLink : " "}`}>Блог</Link>
+                <Link to="/surveys" className={`${cl.eventsNav__link} ${location.pathname === "/surveys" ? cl.activeLink : " "}`}>Опросы</Link>
+            </div>
+          )
+        }
+        <div className={cl.events__actions}>
+          
           <Filter topics={topics}/>
           <InputSearch/>
         </div>

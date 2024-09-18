@@ -2,15 +2,16 @@ import React from 'react'
 import cl from './EventItem.module.scss'
 import Tag from '../../shared/modules/Tag/Tag'
 import heart from '../../shared/assets/heart.svg'
+import { Link } from 'react-router-dom';
 
 function EventItem({item}) {
 
-    const {title, image, tags, description} = item;
+    const {id, title, image, tags, description} = item;
 
   return (
     <div className={cl.eventItem}>
         <div className={cl.eventItem__image}>
-            <img src={image} alt={title} />
+            <Link to={`/event/${id}`}><img src={image} alt={title} /></Link>
             <div className={cl.eventItemImage__like}>
                 <img src={heart} alt="favorite btn" />
             </div>

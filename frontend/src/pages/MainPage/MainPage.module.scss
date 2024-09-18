@@ -94,6 +94,24 @@
         margin-top: 130px;
 
         .events__nav{
+            border-bottom: 1px solid #D9D9D9;
+            margin-bottom: 51px;
+            padding-bottom: 15px;
+
+            .eventsNav__link{
+                font-size: 20px;
+                font-weight: 400;
+                padding: 15px 25px;
+                text-decoration: none;
+                color: $color_link;
+            }
+
+            .activeLink{
+                border-bottom: 2px solid $color_eventsNavLink_border;
+            }
+        }
+
+        .events__actions{
             margin-bottom: 30px;
             display: flex;
             justify-content: space-between;

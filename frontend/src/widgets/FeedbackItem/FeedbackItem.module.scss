@@ -1,0 +1,33 @@
+
+@use "../../shared/styles/fonts.scss" as *;
+
+.feedbackItem{
+    > *:not(:last-child){
+        margin-bottom: 20px;
+    }
+
+    .feedbackItem__title{
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        .title__image{
+           width: 42px;
+           height: 42px; 
+           border-radius: 50%;
+           object-fit: cover;
+        }
+        
+        .title__username{
+            font-family: "Inter";
+            font-size: 20px;
+            font-weight: 500;
+        }
+    }
+
+    .feedbackItem__comment{
+        font-size: 20px;
+        color: #5a5a5a;
+        font-weight: 400;
+    }
+}
