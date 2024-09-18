@@ -31,7 +31,7 @@ class RecSysData(BaseModel):
     
 class FuzzySearchQuery(BaseModel):
     query: str
-    limit: int
+    limit: int = 100
 
 
 @app.post('/create_recsys')
