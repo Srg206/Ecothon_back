@@ -132,3 +132,33 @@ class RecSys:
         self.svd = TruncatedSVD(n_components=self.n_components)
         self.user_factors = self.svd.fit_transform(self.interaction_matrix)
         self.event_factors = self.svd.components_.T
+        
+    def remove_user(self, user_id: str) -> None:
+        self.users_data = [user for user in self.users_data if user['user_id'] != user_id]
+        
+        if user_id in self.interaction_matrix.index:
+            self.interaction_matrix.drop(user_id, axis=0, inplace=True)
+
+            self.svd = TruncatedSVD(n_components=self.n_components)
+            self.user_factors = self.svd.fit_transform(self.interaction_matrix)
+            self.event_factors = self.svd.components_.T
+        else:
+            raise ValueError(f'User with ID {user_id} does not exist.')
+    
+    def remove_event(self, event_id: str) -> None:
+        self.events_data = [event for event in self.events_data if event['event_id'] != event_id]
+
+        if event_id in self.interaction_matrix.columns:
+            self.interaction_matrix.drop(event_id, axis=1, inplace=True)
+            
+            event_idx = self.event_ids.index(event_id)
+            self.event_vectors = np.delete(self.event_vectors, event_idx, axis=0)
+            self.index = nmslib.init(method='hnsw', space='cosinesimil')
+            self.index.addDataPointBatch(self.event_vectors)
+            self.index.createIndex({'post': 2}, print_progress=True)
+
+            self.svd = TruncatedSVD(n_components=self.n_components)
+            self.user_factors = self.svd.fit_transform(self.interaction_matrix)
+            self.event_factors = self.svd.components_.T
+        else:
+            raise ValueError(f'Event with ID {event_id} does not exist.')
