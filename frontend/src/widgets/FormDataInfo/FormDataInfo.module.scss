@@ -1,0 +1,87 @@
+
+@use "../../shared/styles/colors.scss" as *;
+
+.formDataInfo{
+    background-color: #fff;
+    width: 930px;
+    padding: 40px 50px;
+    border-radius: 30px;
+
+    .formDataInfo__title{
+        font-size: 24px;
+        font-weight: 400;
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .formDataInfo__inputs{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px 50px;
+    }
+
+    .formDataInfo__genders{
+        .genders__title{
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .genders__btns{
+            display: flex;
+            gap: 8px;
+        }
+    }
+
+    .formDataInfo__pushNotification{
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-size: 18px;
+        color: #5A5A5A;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .pushNotification__checkbox {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            border: 2px solid $checkbox_color_border;
+            border-radius: 5px;
+            width: 24px;
+            height: 24px;
+
+            &:hover{
+                border-color: $checkbox_color_border_hover;
+            }
+
+            &:checked {
+                background-color: $checkbox_color_border_hover; 
+                border-color: $checkbox_color_border_hover; 
+                
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 6px;
+                    height: 12px;
+                    border: solid white;
+                    border-width: 0 2px 2px 0;
+                    transform: rotate(45deg);
+                    top: 2px;
+                    left: 7px; 
+                }
+            }
+        }    
+    }
+
+    .formDataInfo__btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    > *:not(:last-child){
+        margin-bottom: 30px;
+    }
+}

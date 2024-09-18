@@ -3,7 +3,7 @@ import cl from './BtnGreenReverse.module.scss'
 
 function BtnGreenReverse({children, onClick}) {
   return (
-    <div className={cl.btnGreenReverse} onClick={() => onClick()}>
+    <div className={cl.btnGreenReverse} onClick={onClick}>
         {children}
     </div>
   )

@@ -1,0 +1,36 @@
+
+@use "../../styles/colors.scss" as *;
+
+.inputDataInfoWithTitle{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    .inputDataInfoWithTitle__title{
+        font-size: 20px;
+        font-weight: 600;
+    }
+
+    input{
+        border: 2px solid $inputData_color_border;
+        border-radius: 6px;
+        padding: 12px 30px;
+        outline: none;
+        font-size: 20px;
+        font-weight: 400;
+        width: 390px;
+
+        &::placeholder{
+            color: #BBBB;
+        }
+
+        &:hover, &:focus{
+            border-color: $inputData_color_border_hover;
+        }
+
+        &:focus::placeholder{
+            color: transparent;
+        }
+    }
+
+}

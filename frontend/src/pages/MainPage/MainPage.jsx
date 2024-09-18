@@ -15,7 +15,7 @@ function MainPage({events}) {
 
   const [recentEvents, setRecentEvents] = useState();
   const [topics, setTopics] = useState();
-  const [isLoginUser] = useState(true);
+  const [isLoginUser] = useState(false);
   const location = useLocation();
 
   useEffect(() => {

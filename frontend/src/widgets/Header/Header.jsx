@@ -12,7 +12,7 @@ function Header() {
 
     const location = useLocation();
     const navigate = useNavigate();
-    const [isLoginUser] = useState(true);
+    const [isLoginUser] = useState(false);
 
     const navigateToLogin = () => {
         navigate('/login');
