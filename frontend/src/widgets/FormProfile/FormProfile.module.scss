@@ -1,0 +1,77 @@
+
+@use "../../shared/styles/colors.scss" as *;
+@use "../../shared/styles/fonts.scss" as *;
+
+.formProfile{
+    width: 930px;
+    
+    .formProfile__inputs{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px 50px;
+    }
+
+    .formProfile__genders{
+        .genders__title{
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .genders__btns{
+            display: flex;
+            gap: 8px;
+        }
+    }
+
+    .formProfile__pushNotification{
+        margin-top: 30px;
+        margin-bottom: 30px;
+        font-size: 18px;
+        color: #5A5A5A;
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .pushNotification__checkbox {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            position: relative;
+            border: 2px solid $checkbox_color_border;
+            border-radius: 5px;
+            width: 24px;
+            height: 24px;
+
+            &:hover{
+                border-color: $checkbox_color_border_hover;
+            }
+
+            &:checked {
+                background-color: $checkbox_color_border_hover; 
+                border-color: $checkbox_color_border_hover; 
+                
+                &::after {
+                    content: "";
+                    position: absolute;
+                    width: 6px;
+                    height: 12px;
+                    border: solid white;
+                    border-width: 0 2px 2px 0;
+                    transform: rotate(45deg);
+                    top: 2px;
+                    left: 7px; 
+                }
+            }
+        }    
+    }
+
+    .formProfile__btn{
+        display: flex;
+        align-items: center;
+        justify-content: left;
+    }
+
+    > *:not(:last-child){
+        margin-bottom: 30px;
+    }
+}

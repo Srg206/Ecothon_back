@@ -1,0 +1,21 @@
+
+@use "../../styles/colors.scss" as *;
+@use "../../styles/fonts.scss" as *;
+
+.exitBtn{
+    border: 2px solid $error_color;
+    border-radius: 30px;
+    width: 146px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+
+    .exitBtn__text{
+        font-family: "Gilroy Medium";
+        font-size: 22px;
+        color: $error_color;
+    }
+}

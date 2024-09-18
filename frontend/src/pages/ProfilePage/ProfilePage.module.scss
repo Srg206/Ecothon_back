@@ -1,0 +1,63 @@
+
+@use "../../shared/styles/colors.scss" as *;
+@use "../../shared/styles/fonts.scss" as *;
+
+.profilePage{
+    margin-top: 60px;
+    .profilePage__top{
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 50px;
+        .top__title{
+            font-size: 32px;
+        }
+    }
+
+    .profilePage__content{
+        > *:not(:last-child){
+            margin-bottom: 90px;
+        }
+        .content__info{
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            .info__image > img{
+                width: 250px;
+                height: 250px;
+                border-radius: 10px;
+                object-fit: cover;
+                border: 2px solid $base_color;
+            }
+        }
+
+        .content__friends{
+            .friends__btns{
+                display: flex;
+                gap: 40px;
+                margin-bottom: 40px;
+
+                .requestsBtn, .friendsBtn{
+                    font-size: 32px;
+                    color: #BBBBBB;
+                }
+
+                .active{
+                    color: #000;
+                }   
+            }
+
+            .friends{
+                display: flex;
+                flex-wrap: wrap;
+                gap: 50px;
+            }
+        }
+
+        .content__surveys{
+            .surveys__title{
+                font-size: 32px;
+                margin-bottom: 60px;
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+
+.againSurvey{
+    width: 440px;
+    height: 161px;
+    background-color: #f7f7f7;
+    border-radius: 30px;
+    padding: 15px 40px;
+
+    .againSurvey__main{
+        display: flex;
+        align-items: center;
+        gap: 30px;
+        margin-bottom: 15px;
+        height: 73px;
+
+        > img{
+            width: 56px;
+            height: 56px;
+        }
+
+        .main__text{
+            .text__title{
+                font-size: 20px;
+                margin-bottom: 12px;
+            }
+            .text__subtitle{
+                font-size: 16px;
+                color: #a7a7a7;
+            }
+        }
+    }
+}

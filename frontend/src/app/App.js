@@ -9,10 +9,10 @@ import LoginPage from '../pages/LoginPage/LoginPage';
 import EventItemPage from '../pages/EventItemPage/EventItemPage';
 import { useEffect, useState } from 'react';
 import fake from '../fake/fakeData';
+import ProfilePage from '../pages/ProfilePage/ProfilePage';
 
 function App() {
   const location = useLocation(); 
-
   const [events, setEvents] = useState();
 
   useEffect(() => {
@@ -35,6 +35,7 @@ function App() {
               <Route path="/" element={<MainPage events={events} />} />
               <Route path="/login" element={<LoginPage />} />
               <Route path="/event/:id" element={<EventItemPage events={events} />} />
+              <Route path="/profile" element={<ProfilePage/>}/>
             </Routes>
           </div>
         ) : (
@@ -45,7 +46,7 @@ function App() {
         )
       }
 
-      { !isLoginPage && <Footer /> }
+      { !isLoginPage && <div className="_container"><Footer /></div> }
     </div>
   );
 }
