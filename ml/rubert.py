@@ -6,8 +6,8 @@ import numpy as np
 
 class TextEmbedder:
     def __init__(self):
-        self.tokenizer = AutoTokenizer.from_pretrained('cointegrated/rubert-tiny-2')
-        self.model = AutoModel.from_pretrained('cointegrated/rubert-tiny-2')
+        self.tokenizer = AutoTokenizer.from_pretrained('cointegrated/rubert-tiny2')
+        self.model = AutoModel.from_pretrained('cointegrated/rubert-tiny2')
 
     def embed(self, texts: List[str]) -> np.ndarray:
         tokens = self.tokenizer(texts, padding=True, truncation=True, return_tensors='pt')
