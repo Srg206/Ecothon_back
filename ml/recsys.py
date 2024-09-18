@@ -84,6 +84,26 @@ class RecSys:
             
         recommended_events = sorted(combined_scores.items(), key=lambda x: x[1], reverse=True)[:top_n]
         return [event[0] for event in recommended_events]
+    
+    def update_user(self, updated_user: Dict[str, Any]) -> None:
+        user_id = updated_user['user_id']
+        
+        user_idx = next((i for i, user in enumerate(self.users_data) if user['user_id'] == user_id), None)
+        
+        if user_idx is not None:
+            self.users_data[user_idx] = updated_user
+            
+            self.interaction_matrix.loc[user_id, :] = 0
+            for fav in updated_user['favorites']:
+                event_id = next((event['event_id'] for event in self.events_data if event['name'] == fav), None)
+                if event_id and event_id in self.interaction_matrix.columns:
+                    self.interaction_matrix.loc[user_id, event_id] = 1
+            
+            self.svd = TruncatedSVD(n_components=self.n_components)
+            self.user_factors = self.svd.fit_transform(self.interaction_matrix)
+            self.event_factors = self.svd.components_.T
+        else:
+            raise ValueError(f'User with ID {user_id} does not exist.')
 
     def add_user(self, new_user: Dict[str, Any]) -> None:
         self.users_data.append(new_user)
