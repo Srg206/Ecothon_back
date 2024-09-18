@@ -67,6 +67,19 @@ new_user_id = '6558909875674563'
 new_recommendations = recsys.hybrid_recommendation(new_user_id, top_n=5)
 print(f'Рекомендации для нового пользователя {new_user_id}: {new_recommendations}')
 
+# пример обновления данных существующего пользователя
+updated_user = {
+    'user_id': '6558909875674563',
+    'search_history': ['экологический туризм', 'устойчивое развитие', 'очистка рек', 'новый запрос'],
+    'interests': ['туризм', 'реки', 'экология', 'новый интерес'],
+    'favorites': ['Зеленая выставка в Москве', 'новое избранное']
+}
+
+recsys.update_user(updated_user)
+
+recommendations_after_update = recsys.hybrid_recommendation('6558909875674563', top_n=5)
+print(f'Обновленные рекомендации для пользователя: {recommendations_after_update}')
+
 fs = FuzzySearch(events_data)
 
 # пример нечеткого поиска по запросу
