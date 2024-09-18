@@ -91,6 +91,32 @@ def update_user(updated_user: UserModel):
         raise HTTPException(status_code=404, detail=str(e))
 
 
+@app.delete('/remove_user/{user_id}')
+def remove_user(user_id: str):
+    global recsys_instance
+    if not recsys_instance:
+        raise HTTPException(status_code=400, detail='RecSys instance is not initialized.')
+    
+    try:
+        recsys_instance.remove_user(user_id)
+        return {'message': f'User with ID {user_id} removed successfully.'}
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+
+
+@app.delete('/remove_event/{event_id}')
+def remove_event(event_id: str):
+    global recsys_instance
+    if not recsys_instance:
+        raise HTTPException(status_code=400, detail='RecSys instance is not initialized.')
+    
+    try:
+        recsys_instance.remove_event(event_id)
+        return {'message': f'Event with ID {event_id} removed successfully.'}
+    except ValueError as e:
+        raise HTTPException(status_code=404, detail=str(e))
+    
+
 @app.get('/hybrid_recommendation/{user_id}')
 def hybrid_recommendation(user_id: str, top_n: int = 5):
     global recsys_instance
