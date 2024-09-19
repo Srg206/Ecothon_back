@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react'
 import cl from './MyEventsPage.module.scss'
 import fake from '../../fake/fakeData'
 import EventItem from '../../widgets/EventItem/EventItem';
+import EventActionButtonGroup from '../../widgets/EventActionButtonGroup/EventActionButtonGroup';
+import { Link } from 'react-router-dom'
+
+import like from '../../shared/assets/Like.svg'
+import archive from '../../shared/assets/Archive.svg'
+import calendar from '../../shared/assets/Calendar.svg'
 
 function MyEventsPage() {
 
@@ -19,7 +25,9 @@ function MyEventsPage() {
             <div className={cl.collections__title}>Подборки</div>
             <div className={cl.collections__content}>
                 <div className={cl.content__btns}>
-
+                    <EventActionButtonGroup title="События по записи" icon={calendar}/>
+                    <EventActionButtonGroup title="Вам понравилось" icon={like}/>
+                    <EventActionButtonGroup title="Архив событий" icon={archive}/>
                 </div>
                 <div className={cl.content__historyFriends}>
                     <div className={cl.historyFriends__title}>События друзей</div>
@@ -30,7 +38,7 @@ function MyEventsPage() {
                             <div></div>
                             : 
                             <div className={cl.main__empty}>
-                                Добавить друзей можно в разделе <span>Профиль</span>
+                                Добавить друзей можно в разделе <Link to="/profile" className={cl.empty__link}><span>Профиль</span></Link>
                             </div>
                         }
                     </div>

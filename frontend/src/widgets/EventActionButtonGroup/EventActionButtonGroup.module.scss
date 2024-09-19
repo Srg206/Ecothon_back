@@ -1,0 +1,29 @@
+
+.eventActionButtonGroup{
+    position: relative;
+    width: 440px;
+    height: 160px;
+    border-radius: 30px;
+    padding: 40px;
+    border: 2px solid gray;
+    background-color: gray;
+
+    .main{
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        .main__icon{
+            width: 65px;
+            height: 65px;
+        }
+        .main__title{
+            font-size: 24px;
+            color: #fff;
+        }
+    }
+    .background{
+        position: absolute;
+        z-index: -1;
+    }
+}

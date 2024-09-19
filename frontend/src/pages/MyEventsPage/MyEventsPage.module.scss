@@ -16,6 +16,7 @@
 
             .content__btns{
                 display: flex;
+                flex-wrap: wrap;
                 gap: 30px 50px; 
             }
             .content__historyFriends{
@@ -41,8 +42,11 @@
                     font-family: "Gilroy Medium";
                     color: #BBBBBB;
 
-                    span{
-                        color: #42B99D;
+                    .main__empty{
+                        .empty__link{
+                            text-decoration: none;
+                            color: #42B99D;
+                        }
                     }
                 }
             }
@@ -52,6 +56,7 @@
     .myEventPage__recentlyEvents{
         .recentlyEvents__title{
             font-size: 32px;
+            margin-bottom: 40px;
         }
         .recentlyEvents__items{
             display: flex;
