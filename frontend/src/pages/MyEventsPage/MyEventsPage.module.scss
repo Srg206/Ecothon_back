@@ -1,0 +1,66 @@
+
+@use "../../shared/styles/fonts.scss" as *;
+@use "../../shared/styles/colors.scss" as *;
+
+.myEventsPage{
+    margin-top: 60px;
+
+    .myEventsPage__collections{
+        .collections__title{
+            font-size: 32px;
+            margin-bottom: 50px;
+        }
+        .collections__content{
+            display: flex;
+            gap: 50px;
+
+            .content__btns{
+                display: flex;
+                gap: 30px 50px; 
+            }
+            .content__historyFriends{
+                border: 2px solid $base_color;
+                height: 430px;
+                width: 440px;
+                border-radius: 30px;
+                padding: 30px 40px;
+
+                .historyFriends__title{
+                    font-size: 24px;
+                    margin-bottom: 40px;
+                    font-family: "Gilroy Medium";
+                }
+
+                .historyFriends__main{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    height: 332px;
+                    font-size: 18px;
+                    text-align: center;
+                    font-family: "Gilroy Medium";
+                    color: #BBBBBB;
+
+                    span{
+                        color: #42B99D;
+                    }
+                }
+            }
+        }
+    }
+
+    .myEventPage__recentlyEvents{
+        .recentlyEvents__title{
+            font-size: 32px;
+        }
+        .recentlyEvents__items{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+    }
+
+    > *:not(:last-child){
+        margin-bottom: 90px;
+    }
+}

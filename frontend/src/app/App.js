@@ -10,6 +10,7 @@ import EventItemPage from '../pages/EventItemPage/EventItemPage';
 import { useEffect, useState } from 'react';
 import fake from '../fake/fakeData';
 import ProfilePage from '../pages/ProfilePage/ProfilePage';
+import MyEventsPage from '../pages/MyEventsPage/MyEventsPage';
 
 function App() {
   const location = useLocation(); 
@@ -36,6 +37,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/event/:id" element={<EventItemPage events={events} />} />
               <Route path="/profile" element={<ProfilePage/>}/>
+              <Route path="/myevents" element={<MyEventsPage/>}/>
             </Routes>
           </div>
         ) : (

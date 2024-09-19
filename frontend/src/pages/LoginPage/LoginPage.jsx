@@ -12,6 +12,7 @@ import data from '../../data/data'
 
 import ellipse1 from '../../shared/assets/Ellipse49.svg'
 import ellipse2 from '../../shared/assets/Ellipse50.svg'
+import SendServer from '../../api/Service'
 
 function LoginPage() {
 
@@ -19,14 +20,34 @@ function LoginPage() {
     const [step, setStep] = useState('login');
     const interests = data.getInterests();
 
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
     // Функция для перехода на форму регистрации
-    const handleLoginSuccess = () => {
-      setStep('registration');
+    const handleLoginSuccess = async () => {
+      try{  
+        console.log("Отправляемые данные: ", email, password);
+        const response = await SendServer.loginUser(email, password);
+        console.log(response.data);
+        navigate('/');
+      } catch (error) {
+        console.log("Error log in! ", error);
+      }
     };
 
+    const handleSwapLoginToRegistration = () => {
+      setStep('registration');
+    }
+
     // Функция для перехода на форму заполнения данных
-    const handleRegistrationSuccess = () => {
-      setStep('dataInfo');
+    const handleRegistrationSuccess = async (email, password) => {
+      try{
+        const response = await SendServer.registrationNewUser(email, password);
+        console.log(response.data);
+        setStep('dataInfo');
+      } catch (error) {
+        console.log("Error registration: ", error);
+      }
     };
     
     // Функция для обработки успешного заполнения данных (если необходимо)
@@ -48,7 +69,14 @@ function LoginPage() {
         <LogoComponent/>
         {
           step === 'login'
-          ? <FormLogin onLoginSuccess={handleLoginSuccess} />
+          ? <FormLogin 
+              onLoginSuccess={handleLoginSuccess}
+              email={email}
+              password={password}
+              setEmail={setEmail}
+              setPassword={setPassword}
+              onSwapLoginToRegistration={handleSwapLoginToRegistration}
+            />
           : step === 'registration'
           ? <FormRegistration title="Регистрация" onRegistrationSuccess={handleRegistrationSuccess} />
           : step === 'dataInfo'
