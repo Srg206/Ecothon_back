@@ -31,7 +31,7 @@ function FormRegistration({title, onRegistrationSuccess}) {
       setError(validationError);
     } else {
       setError('');
-      onRegistrationSuccess(email, password)
+      onRegistrationSuccess(email, password);
     }
   }
 

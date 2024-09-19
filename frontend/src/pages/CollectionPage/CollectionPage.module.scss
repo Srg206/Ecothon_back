@@ -1,0 +1,32 @@
+
+.collectionPage{
+    margin-top: 60px;
+
+    .collectionPage__link{
+        text-decoration: none;
+        color: #000;
+    }
+
+    .collectionPage__backBtn{
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        margin-bottom: 50px;
+
+        .backBtn__text{
+            font-size: 32px;
+        }
+    }
+
+    .collectionPage__main{
+        .topic{
+            margin-bottom: 50px;
+        }
+
+        .main__events{
+            display: flex;
+            gap: 50px;
+            flex-wrap: wrap;
+        }
+    }
+}

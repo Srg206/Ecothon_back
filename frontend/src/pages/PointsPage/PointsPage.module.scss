@@ -1,0 +1,60 @@
+@use "../../shared/styles/colors.scss" as *;
+
+.pointsPage{
+    margin-top: 60px;
+    .pointsPage__title{
+        font-size: 32px;
+        margin-bottom: 42px;
+    }
+    .pointsPage__score{
+        display: flex;
+        justify-content: space-between;
+        gap: 50px;
+        margin-bottom: 80px;
+        
+        .score__points{
+            display: flex;
+            align-items: center;
+            gap: 34px;
+
+            .point{
+                color: #42B99D;
+                font-size: 24px;
+                span{
+                    font-size: 60px;
+                }
+            }
+        }
+
+        .score__rank{
+            min-width: 930px;
+        }
+    }
+
+    .pointsPage__main{
+        .main__nav{
+            border-bottom: 1px solid #D9D9D9;
+            margin-bottom: 51px;
+            padding-bottom: 15px;
+            display: flex;
+
+            .mainNav__link{
+                font-size: 20px;
+                padding: 15px 25px;
+                text-decoration: none;
+                color: $color_link;
+                cursor: pointer;
+            }
+
+            .activeLink{
+                border-bottom: 2px solid $color_eventsNavLink_border;
+            }
+        }
+
+        .main__events{
+            > *:not(:last-child){
+                margin-bottom: 30px;
+            }
+        }
+    }
+}

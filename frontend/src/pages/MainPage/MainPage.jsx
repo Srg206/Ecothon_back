@@ -86,7 +86,7 @@ function MainPage({events}) {
           {
             events && events.map((item, index) => (
               <>
-                <EventItem item={item} key={index}/>
+                <EventItem item={item} key={item.id}/>
                 {
                   index === 5 && !isLoginUser && (
                     <AdBanner />
@@ -102,8 +102,8 @@ function MainPage({events}) {
           <div className={cl.recentEvents__title}>Недавно прошедшие события</div>
           <div className={cl.recentEvents__items}>
             {
-              recentEvents && recentEvents.map((item, index) => (
-                <EventItem item={item} key={index}/>
+              recentEvents && recentEvents.map((item) => (
+                <EventItem item={item} key={item.id}/>
               ))
             }
           </div>

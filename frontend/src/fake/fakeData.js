@@ -21,7 +21,8 @@ export default class fake{
             image: eventImage2,
             tags: ["тег1", "тег2", "тег3"],
             description: "Описание события 1...",
-            isFavorite: false
+            isFavorite: false,
+            point: 40,
         },
         {
             id: 2,
@@ -36,7 +37,8 @@ export default class fake{
             image: eventImage2,
             tags: ["тег4", "тег5", "тег6"],
             description: "Описание события 2...",
-            isFavorite: true
+            isFavorite: true,
+            point: 100,
         },
         {
             id: 3,
@@ -51,7 +53,8 @@ export default class fake{
             image: eventImage2,
             tags: ["тег7", "тег8", "тег9"],
             description: "Описание события 3...",
-            isFavorite: false
+            isFavorite: false,
+            point: 40,
         },
         {
             id: 4,
@@ -66,7 +69,8 @@ export default class fake{
             image: eventImage,
             tags: ["тег10", "тег11", "тег12"],
             description: "Описание события 4...",
-            isFavorite: true
+            isFavorite: true,
+            point: 40,
         },
         {
             id: 5,
@@ -81,7 +85,8 @@ export default class fake{
             image: eventImage,
             tags: ["тег13", "тег14", "тег15"],
             description: "Описание события 5...",
-            isFavorite: false
+            isFavorite: false,
+            point: 40,
         },
         {
             id: 6,
@@ -96,7 +101,8 @@ export default class fake{
             image: eventImage,
             tags: ["тег16", "тег17", "тег18"],
             description: "Описание события 6...",
-            isFavorite: true
+            isFavorite: true,
+            point: 40,
         },
         {
             id: 7,
@@ -111,7 +117,8 @@ export default class fake{
             image: eventImage,
             tags: ["тег19", "тег20", "тег21"],
             description: "Описание события 7...",
-            isFavorite: false
+            isFavorite: false,
+            point: 40,
         },
         {
             id: 8,
@@ -126,7 +133,8 @@ export default class fake{
             image: eventImage,
             tags: ["тег22", "тег23", "тег24"],
             description: "Описание события 8...",
-            isFavorite: true
+            isFavorite: true,
+            point: 40,
         },
         {
             id: 9,
@@ -141,7 +149,8 @@ export default class fake{
             image: eventImage,
             tags: ["тег25", "тег26", "тег27"],
             description: "Описание события 9...",
-            isFavorite: false
+            isFavorite: false,
+            point: 40,
         },
         {
             id: 10,
@@ -156,7 +165,8 @@ export default class fake{
             image: eventImage,
             tags: ["тег28", "тег29", "тег30"],
             description: "Описание события 10...",
-            isFavorite: true
+            isFavorite: true,
+            point: 40,
         },
         {
             id: 11,
@@ -171,7 +181,8 @@ export default class fake{
             image: eventImage,
             tags: ["тег31", "тег32", "тег33"],
             description: "Описание события 11...",
-            isFavorite: false
+            isFavorite: false,
+            point: 40,
         },
         {
             id: 12,
@@ -186,7 +197,8 @@ export default class fake{
             image: eventImage,
             tags: ["тег34", "тег35", "тег36"],
             description: "Описание события 12...",
-            isFavorite: true
+            isFavorite: true,
+            point: 40,
         },
         {
             id: 13,
@@ -201,7 +213,8 @@ export default class fake{
             image: eventImage,
             tags: ["тег37", "тег38", "тег39"],
             description: "Описание события 13...",
-            isFavorite: false
+            isFavorite: false,
+            point: 40,
         },
         {
             id: 14,
@@ -216,7 +229,8 @@ export default class fake{
             image: eventImage,
             tags: ["тег40", "тег41", "тег42"],
             description: "Описание события 14...",
-            isFavorite: true
+            isFavorite: true,
+            point: 40,
         },
         {
             id: 15,
@@ -231,7 +245,8 @@ export default class fake{
             image: eventImage,
             tags: ["тег43", "тег44", "тег45"],
             description: "Описание события 15...",
-            isFavorite: false
+            isFavorite: false,
+            point: 40,
         },
         {
             id: 16,
@@ -246,7 +261,8 @@ export default class fake{
             image: eventImage,
             tags: ["тег46", "тег47", "тег48"],
             description: "Описание события 16...",
-            isFavorite: true
+            isFavorite: true,
+            point: 40,
         },
         {
             id: 17,
@@ -261,7 +277,8 @@ export default class fake{
             image: eventImage,
             tags: ["тег49", "тег50", "тег51"],
             description: "Описание события 17...",
-            isFavorite: false
+            isFavorite: false,
+            point: 40,
         },
         {
             id: 18,
@@ -276,7 +293,8 @@ export default class fake{
             image: eventImage,
             tags: ["тег52", "тег53", "тег54"],
             description: "Описание события 18...",
-            isFavorite: true
+            isFavorite: true,
+            point: 10,
         }
         ];
         return events;

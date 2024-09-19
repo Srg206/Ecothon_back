@@ -25,9 +25,9 @@ function MyEventsPage() {
             <div className={cl.collections__title}>Подборки</div>
             <div className={cl.collections__content}>
                 <div className={cl.content__btns}>
-                    <EventActionButtonGroup title="События по записи" icon={calendar}/>
-                    <EventActionButtonGroup title="Вам понравилось" icon={like}/>
-                    <EventActionButtonGroup title="Архив событий" icon={archive}/>
+                    <EventActionButtonGroup title="События по записи" icon={calendar} path='/collections/calendar'/>
+                    <EventActionButtonGroup title="Вам понравилось" icon={like} path='/collections/likes'/>
+                    <EventActionButtonGroup title="Архив событий" icon={archive} path='/collections/archive'/>
                 </div>
                 <div className={cl.content__historyFriends}>
                     <div className={cl.historyFriends__title}>События друзей</div>

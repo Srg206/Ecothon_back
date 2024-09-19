@@ -1,0 +1,41 @@
+
+.pointItem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .pointItem__left{
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        .pointItem__image{
+            > img{
+                width: 100px;
+                height: 100px;
+                border-radius: 10px;
+            }
+        }
+        .pointItem__text{
+            .text__title{
+                font-size: 22px;  
+                margin-bottom: 10px;
+            }
+            .text__date{
+                font-size: 20px;
+                color: #BBBBBB;
+            }
+        }
+    }
+    .pointItem__score{
+        display: flex;
+        gap: 24px;
+        align-items: center;
+        color: #42B99D;
+        font-size: 18px;
+
+        span{
+            font-size: 40px;
+        }
+    }
+}

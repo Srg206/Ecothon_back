@@ -29,7 +29,7 @@ function Header() {
                 <div className={cl.header__nav}>
                     <NavLink text="Главная" path="/" isActive={location.pathname === "/"}/>
                     <NavLink text="Мои события" path="/myevents" isActive={location.pathname === "/myevents"}/>
-                    <NavLink text="Баллы" path="/blog" isActive={location.pathname === "/blog"}/>
+                    <NavLink text="Баллы" path="/points" isActive={location.pathname === "/points"}/>
                 </div>
                 :
                 <div className={cl.header__nav}>
