@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import cl from './FormRegistration.module.scss'
 import BtnGreen from '../../shared/modules/BtnGreen/BtnGreen'
 import InputGreen from '../../shared/modules/InputGreen/InputGreen'
+import SendServer from '../../api/Service';
 
 function FormRegistration({title, onRegistrationSuccess}) {
 
@@ -25,13 +26,26 @@ function FormRegistration({title, onRegistrationSuccess}) {
     return null;
   };
 
+  const registration = async (email, password) => {
+    try{
+      const response = await SendServer.registrationNewUser(email, password);
+      console.log(response.data);
+    } catch (error) {
+      console.log("Error registration: ", error);
+    }
+  };
+
   const handleRegisterClick = () => {
     const validationError = validateForm();
     if (validationError){
       setError(validationError);
     } else {
       setError('');
-      onRegistrationSuccess(email, password);
+      if (typeof onRegistrationSuccess === 'function') { // Проверка на существование функции
+        onRegistrationSuccess(email, password);
+      } else {
+        registration(email, password);
+      }
     }
   }
 
