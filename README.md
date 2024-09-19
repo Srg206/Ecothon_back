@@ -41,7 +41,7 @@ Swagger API docs: [тык](https://google.com)
 
 ## Формат API
 Swagger не успел прикрутить 
-## 1)
+## 1) create_user
 curl -X POST http://green.itatmisis.ru:8002/auth/create_user \
 -H "Content-Type: application/json" \
 -d '{
@@ -49,7 +49,7 @@ curl -X POST http://green.itatmisis.ru:8002/auth/create_user \
     "password": "securePassword"
 }'  // возвращает access_token
 
-## 2)
+## 2) login
    curl -X POST http://green.itatmisis.ru:8002/auth/login \
 -H "Content-Type: application/json" \
 -d '{
@@ -57,19 +57,19 @@ curl -X POST http://green.itatmisis.ru:8002/auth/create_user \
     "password": "securePassword"
 }' // возвращает access_token
 
-## 3)
+## 3) save_user_info 
    curl -X POST http://green.itatmisis.ru:8002/auth/save_user_info \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVkX2F0IjoxNzI2Njc3ODE4LCJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20ifQ.2-NW5ufBBUzA77Sm7jFaUmn0epjmBLTi2fbleIUxiu0" \
 -d '{"email": "user@example.com", "password": "securePassword", "name":"Sergei", "surname":"Tsukanov", "birthdate":"23.05.2006", "phone":"79002000000", "gender":"m", "send_notifications":true}'
 
-## 4)
+## 4) save_interests
   curl -X POST  http://green.itatmisis.ru:8002/personalise/save_interests \
      -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVkX2F0IjoxNzI2NjkyNzQxLCJlbWFpbCI6InVzZXIyQGV4YW1wbGUuY29tIn0.qAbJA2s01uhJIgtgNaH0QwEJHPUZjapEAhwZD2JpcGU" \
      -H "Content-Type: application/json" \
      -d "{"interests":["vistavki", "subbotniki"]}" \
     
-## 5) 
+## 5) add_event
 curl -X POST   http://green.itatmisis.ru:8002/event/add_event \
   -H "Content-Type: application/json" \
   -d '{
@@ -102,6 +102,13 @@ curl -X POST   http://green.itatmisis.ru:8002/event/add_event \
     "coordy": 56.789
   }' \
 
+## 6) get_events   в зависимости от того есть ли header Authorization будет пресонализированная либо не персонализированная лента мероприятий. amount - сколько мероприйтий надо вернуть
+curl -X GET http://green.itatmisis.ru:8002/event/get_events/{amount} \
+  -H "Authorization: Bearer <your_token>" \
+  
+
+## 7) Запрос к /get_event/{event_id} получение всей информации об event по id
+curl -X GET http://green.itatmisis.ru:8002/event/get_event/{event_id}
 
 
 тут описание ручек
