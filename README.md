@@ -40,5 +40,31 @@ Swagger API docs: [тык](https://google.com)
 тут схема нашего решения (пользовательский путь)
 
 ## Формат API
+Swagger не успел прикрутить 
+1) curl -X POST http://green.itatmisis.ru:8002/auth/create_user \
+-H "Content-Type: application/json" \
+-d '{
+    "email": "user@example.com",
+    "password": "securePassword"
+}'  // возвращает access_token
+
+2) curl -X POST http://green.itatmisis.ru:8002/auth/login \
+-H "Content-Type: application/json" \
+-d '{
+    "email": "user3@example.com",
+    "password": "securePassword"
+}' // возвращает access_token
+
+3)  curl -X POST http://green.itatmisis.ru:8002/auth/save_user_info \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVkX2F0IjoxNzI2Njc3ODE4LCJlbWFpbCI6InVzZXJAZXhhbXBsZS5jb20ifQ.2-NW5ufBBUzA77Sm7jFaUmn0epjmBLTi2fbleIUxiu0" \
+-d '{"email": "user@example.com", "password": "securePassword", "name":"Sergei", "surname":"Tsukanov", "birthdate":"23.05.2006", "phone":"79002000000", "gender":"m", "send_notifications":true}'
+
+4)  curl -X POST  http://green.itatmisis.ru:8002/personalise/save_interests \
+     -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJjcmVhdGVkX2F0IjoxNzI2NjkyNzQxLCJlbWFpbCI6InVzZXIyQGV4YW1wbGUuY29tIn0.qAbJA2s01uhJIgtgNaH0QwEJHPUZjapEAhwZD2JpcGU" \
+     -H "Content-Type: application/json" \
+     -d "{"interests":["vistavki", "subbotniki"]}" \
+    
+
 
 тут описание ручек
