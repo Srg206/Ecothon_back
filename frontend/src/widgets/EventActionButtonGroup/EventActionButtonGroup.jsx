@@ -10,7 +10,7 @@ function EventActionButtonGroup({bg, title, icon, path}) {
                 <img className={cl.main__icon} src={icon} alt={title} />
                 <div className={cl.main__title}>{title}</div>
             </div>
-            {/* <img className={cl.background} src={bg} alt="bg" /> */}
+            { bg && <img className={cl.background} src={bg} alt="bg" />}
         </div>
     </Link>
   )

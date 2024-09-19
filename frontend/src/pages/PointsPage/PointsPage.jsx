@@ -4,6 +4,7 @@ import ShowCollection from '../../widgets/ShowCollection/ShowCollection'
 import points from '../../shared/assets/points.svg'
 import PointItem from '../../widgets/PointItem/PointItem'
 import fake from '../../fake/fakeData'
+import bgBig from '../../shared/assets/bg/bgBig.png'
 
 function PointsPage() {
 
@@ -26,7 +27,7 @@ function PointsPage() {
                 </div>
             </div>
             <div className={cl.score__rank}>
-                <ShowCollection rank="Начинающий эколог" reason="за первые шаги в мероприятиях и активностях"/>
+                <ShowCollection rank="Начинающий эколог" reason="за первые шаги в мероприятиях и активностях" bg={bgBig} width="930px"/>
             </div>
         </div>
         <div className={cl.pointsPage__main}>

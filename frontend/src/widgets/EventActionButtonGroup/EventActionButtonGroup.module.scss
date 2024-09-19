@@ -5,8 +5,7 @@
     height: 160px;
     border-radius: 30px;
     padding: 40px;
-    border: 2px solid gray;
-    background-color: gray;
+    // background-color: gray;
 
     .main{
         display: flex;
@@ -24,6 +23,11 @@
     }
     .background{
         position: absolute;
+        border-radius: 30px;
+        top: 0;
+        left: 0;
+        width: inherit;
+        object-fit: cover;
         z-index: -1;
     }
 }

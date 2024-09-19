@@ -9,6 +9,7 @@ import ShowCollection from '../../widgets/ShowCollection/ShowCollection'
 import fake from '../../fake/fakeData'
 import EventItem from '../../widgets/EventItem/EventItem'
 import { Link } from 'react-router-dom'
+import bgBig from '../../shared/assets/bg/bgBig.png'
 
 function CollectionPage() {
 
@@ -34,21 +35,21 @@ function CollectionPage() {
             ?
             <div className={cl.collectionCalendar}>
                 <div className={cl.topic}>
-                    <ShowCollection icon={calendar}/>
+                    <ShowCollection icon={calendar} bg={bgBig}/>
                 </div>
             </div>
             : variant === 'likes'
             ?
             <div className={cl.collectionLikes}>
                 <div className={cl.topic}>
-                    <ShowCollection icon={like}/>
+                    <ShowCollection icon={like} bg={bgBig}/>
                 </div>
             </div>
             : variant === 'archive'
             ? 
             <div className={cl.collectionArchive}>
                 <div className={cl.topic}>
-                    <ShowCollection icon={archive}/>
+                    <ShowCollection icon={archive} bg={bgBig}/>
                 </div>
             </div>
             : <div>Такой подборки не существует!</div>

@@ -1,12 +1,12 @@
 
 .showCollection{
-    background-color: gray;
-    width: 100%;
+    // background-color: gray;
     height: 160px;
     border-radius: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 
     .title{
         text-align: center;
@@ -20,5 +20,15 @@
     .showCollection__icon{
         width: 65px;
         height: 65px;
+    }
+
+    .showCollection__bg{
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        border-radius: 30px;
     }
 }
