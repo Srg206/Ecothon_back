@@ -13,10 +13,13 @@ import ProfilePage from '../pages/ProfilePage/ProfilePage';
 import MyEventsPage from '../pages/MyEventsPage/MyEventsPage';
 import CollectionPage from '../pages/CollectionPage/CollectionPage';
 import PointsPage from '../pages/PointsPage/PointsPage';
+import ModalWindow from '../shared/modules/ModalWindow/ModalWindow';
+import ChargePoints from '../widgets/ChargePoints/ChargePoints';
 
 function App() {
   const location = useLocation(); 
   const [events, setEvents] = useState();
+  const [modal, setModal] = useState(false);
 
   useEffect(() => {
     const response = fake.getEvents();
@@ -27,6 +30,11 @@ function App() {
 
   return (
     <div className="App">
+
+      <ModalWindow visible={modal} setVisible={setModal}>
+        <ChargePoints title="Спасибо за регистрацию!" count="10" />
+      </ModalWindow>
+
       { !isLoginPage && <Header /> }
 
       {/* Условно рендерим _container для всех страниц, кроме LoginPage */}

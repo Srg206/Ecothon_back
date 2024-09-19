@@ -1,0 +1,31 @@
+
+.addFriend{
+
+    background-color: #fff;
+    border-radius: 30px;
+    width: 460px;
+    height: 311px;
+    padding: 40px 50px;
+
+    .addFriend__text{
+        text-align: center;
+        margin-bottom: 30px;
+
+        .text__title{
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+        .text__subtitle{
+            font-size: 18px;
+        }
+    }
+
+    >*:not(:last-child){
+        margin-bottom: 30px;
+    }
+
+    .addFriend__btn{
+        width: 161px;
+        margin: 0 auto;
+    }
+}

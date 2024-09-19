@@ -7,6 +7,10 @@ import AddBtn from '../../shared/modules/AddBtn/AddBtn'
 import FriendItem from '../../widgets/FriendItem/FriendItem'
 import ExitBtn from '../../shared/modules/ExitBtn/ExitBtn'
 import AgainSurvey from '../../widgets/AgainSurvey/AgainSurvey'
+import ModalWindow from '../../shared/modules/ModalWindow/ModalWindow'
+import FormSurvey from '../../widgets/FormSurvey/FormSurvey'
+import data from '../../data/data'
+import AddFriend from '../../widgets/AddFriend/AddFriend'
 
 
 function ProfilePage() {
@@ -37,10 +41,30 @@ function ProfilePage() {
             },
             ]
         }
+
     )
+
+    const [modalSurvey, setModalSurvey] = useState(false);
+    const [modalFriend, setModalFriend] = useState(false);
+
+    const interests = data.getInterests();
+
+    const handleSurveyActive = () => {
+        setModalSurvey(true);
+    }
+
+    const handleFriendActive = () => {
+        setModalFriend(true);
+    }
 
   return (
     <div className={cl.profilePage}>
+        <ModalWindow visible={modalSurvey} setVisible={setModalSurvey}>
+            <FormSurvey interests={interests}/>
+        </ModalWindow>
+        <ModalWindow visible={modalFriend} setVisible={setModalFriend}>
+            <AddFriend/>
+        </ModalWindow>
         <div className={cl.profilePage__top}>
             <div className={cl.top__title}>Редактирование профиля</div>
             <ExitBtn/>
@@ -56,7 +80,7 @@ function ProfilePage() {
                     <div className={cl.requestsBtn}>Запросы</div>
                 </div>
                 <div className={cl.friends}>
-                    <AddBtn/>
+                    <AddBtn onClick={handleFriendActive}/>
                     {
                         userInfo.friends && userInfo.friends.map((friend, index) => (
                             <FriendItem username={friend.username} image={friend.image}/>
@@ -69,7 +93,7 @@ function ProfilePage() {
                     Анкета для улучшения рекомендаций
                 </div>
                 <div className={cl.surveys__main}>
-                    <AgainSurvey/>
+                    <AgainSurvey onClick={handleSurveyActive}/>
                 </div>
             </div>
         </div>

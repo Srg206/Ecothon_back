@@ -2,9 +2,9 @@ import React from 'react'
 import cl from './AddBtn.module.scss'
 import plus from '../../assets/plus.svg'
 
-function AddBtn() {
+function AddBtn({onClick}) {
   return (
-    <div className={cl.addBtn}>
+    <div className={cl.addBtn} onClick={() => onClick()}>
         <img src={plus} alt="plus" />
     </div>
   )

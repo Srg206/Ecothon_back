@@ -3,7 +3,7 @@ import cl from './AgainSurvey.module.scss'
 import BtnGreen from '../../shared/modules/BtnGreen/BtnGreen'
 import check from '../../shared/assets/check.svg'
 
-function AgainSurvey() {
+function AgainSurvey({onClick}) {
   return (
     <div className={cl.againSurvey}>
         <div className={cl.againSurvey__main}>
@@ -17,7 +17,7 @@ function AgainSurvey() {
                 </div>
             </div>
         </div>
-        <BtnGreen>Пройти заново</BtnGreen>
+        <BtnGreen onClick={onClick}>Пройти заново</BtnGreen>
     </div>
   )
 }
