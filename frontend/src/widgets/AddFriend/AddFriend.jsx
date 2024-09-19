@@ -4,7 +4,7 @@ import cl from './AddFriend.module.scss'
 import InputGreen from '../../shared/modules/InputGreen/InputGreen'
 import BtnGreen from '../../shared/modules/BtnGreen/BtnGreen'
 
-function AddFriend() {
+function AddFriend({onClick}) {
   return (
     <div className={cl.addFriend}>
         <div className={cl.addFriend__text}>
@@ -13,7 +13,7 @@ function AddFriend() {
         </div>
         <InputGreen placeholder="Почта"/>
         <div className={cl.addFriend__btn}>
-            <BtnGreen width="161px">Отправить</BtnGreen>
+            <BtnGreen width="161px" onClick={onClick}>Отправить</BtnGreen>
         </div>
     </div>
   )

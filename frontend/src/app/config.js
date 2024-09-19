@@ -1,2 +1,2 @@
-const baseUrl = "https://localhost:8002"
+const baseUrl = "https://green.itatmisis.ru"
 export default baseUrl

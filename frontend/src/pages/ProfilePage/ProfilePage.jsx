@@ -63,7 +63,7 @@ function ProfilePage() {
             <FormSurvey interests={interests}/>
         </ModalWindow>
         <ModalWindow visible={modalFriend} setVisible={setModalFriend}>
-            <AddFriend/>
+            <AddFriend onClick={handleFriendActive}/>
         </ModalWindow>
         <div className={cl.profilePage__top}>
             <div className={cl.top__title}>Редактирование профиля</div>
@@ -83,7 +83,7 @@ function ProfilePage() {
                     <AddBtn onClick={handleFriendActive}/>
                     {
                         userInfo.friends && userInfo.friends.map((friend, index) => (
-                            <FriendItem username={friend.username} image={friend.image}/>
+                            <FriendItem username={friend.username} image={friend.image} key={index}/>
                         ))
                     }
                 </div>
