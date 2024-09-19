@@ -4,15 +4,15 @@ import InputDataInfoWithTitle from '../../shared/modules/InputDataInfoWithTitle/
 import CheckboxGender from '../../shared/modules/CheckboxGender/CheckboxGender';
 import BtnGreenReverse from '../../shared/modules/BtnGreenReverse/BtnGreenReverse';
 
-function FormProfile() {
-    const [isPushNotificationChecked, setIsPushNotificationChecked] = useState(false);
-    const [selectedGender, setSelectedGender] = useState("Ж");
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [name, setName] = useState('');
-    const [surname, setSurname] = useState('');
-    const [birthday, setBirthday] = useState('');
-    const [phone, setPhone] = useState('');
+function FormProfile({user}) {
+    const [isPushNotificationChecked, setIsPushNotificationChecked] = useState(user.send_notifications);
+    const [selectedGender, setSelectedGender] = useState(user.gender);
+    const [email, setEmail] = useState(user.email);
+    const [password, setPassword] = useState(user.password);
+    const [name, setName] = useState(user.name);
+    const [surname, setSurname] = useState(user.surname);
+    const [birthday, setBirthday] = useState(user.birthday);
+    const [phone, setPhone] = useState(user.phone);
 
     const handleGenderChange = (gender) => {
         setSelectedGender(gender);

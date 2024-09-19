@@ -72,7 +72,7 @@ function ProfilePage() {
         <div className={cl.profilePage__content}>
             <div className={cl.content__info}>
                 <div className={cl.info__image}><img src={userInfo.image} alt="user avatar" /></div>
-                <FormProfile/>
+                <FormProfile user={userInfo}/>
             </div>
             <div className={cl.content__friends}>
                 <div className={cl.friends__btns}>
