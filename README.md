@@ -69,9 +69,8 @@ curl -X POST http://green.itatmisis.ru:8002/auth/create_user \
      -H "Content-Type: application/json" \
      -d "{"interests":["vistavki", "subbotniki"]}" \
     
-## 5)  в зависимости от того есть ли header Authorization будет пресонализированная либо не непрсонализированная лента мероприятий
+## 5) 
 curl -X POST   http://green.itatmisis.ru:8002/event/add_event \
-  -H "Authorization: Bearer <your_token>" \
   -H "Content-Type: application/json" \
   -d '{
     "id": "your_event_id",
