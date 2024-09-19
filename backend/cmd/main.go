@@ -15,3 +15,7 @@ func main() {
 	routes.InitRoutes()
 	routes.Router.Run(":8002")
 }
+
+func InitML() {
+
+}
