@@ -40,14 +40,15 @@ Swagger API docs: [тык](https://google.com)
 тут схема нашего решения (пользовательский путь)
 
 ## Формат API
-Swagger не успел прикрутить 
-## 1) create_user
+- /create_user
+```
 curl -X POST http://green.itatmisis.ru:8002/auth/create_user \
 -H "Content-Type: application/json" \
 -d '{
     "email": "user@example.com",
     "password": "securePassword"
 }'  // возвращает access_token
+```
 
 ## 2) login
    curl -X POST http://green.itatmisis.ru:8002/auth/login \
