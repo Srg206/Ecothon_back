@@ -1,5 +1,6 @@
 
 @use "../../shared/styles/fonts.scss" as *;
+@use "../../shared/styles/colors.scss" as *;
 
 .eventItemPage{
     margin-top: 60px;
@@ -32,10 +33,30 @@
                 &:hover{
                     opacity: 1;
                 }
+            }
+
+            .active{
+                filter: invert(56%) sepia(42%) saturate(5590%) hue-rotate(329deg) brightness(90%) contrast(100%);
+                opacity: 1;
+            }
+
+            .eventItemImage__point{
+                position: absolute;
+                top: 18px;
+                right: 18px;
+                display: flex;
+                align-items: center;
+                padding: 4px 10px;
+                background-color: rgba(255, 255, 255, 0.6);
+                gap: 8px;
+                border-radius: 5px;
+                font-family: "Gilroy Medium";
+                font-size: 20px;
     
-                .active{
-                    filter: invert(56%) sepia(42%) saturate(5590%) hue-rotate(329deg) brightness(90%) contrast(100%);
-                    opacity: 1;
+    
+                >img{
+                    width: 21px;
+                    height: 24px;
                 }
             }
         }
@@ -87,13 +108,38 @@
                     display: flex;
                     align-items: center;
                     gap: 20px;
-
-                    .pushNotification__checkbox{
+            
+                    .pushNotification__checkbox {
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+                        position: relative;
+                        border: 2px solid $checkbox_color_border;
+                        border-radius: 5px;
                         width: 24px;
                         height: 24px;
-                        border: 2px solid #d9d9d9;
-                        border-radius: 5px;
-                    }
+            
+                        &:hover{
+                            border-color: $checkbox_color_border_hover;
+                        }
+            
+                        &:checked {
+                            background-color: $checkbox_color_border_hover; 
+                            border-color: $checkbox_color_border_hover; 
+                            
+                            &::after {
+                                content: "";
+                                position: absolute;
+                                width: 6px;
+                                height: 12px;
+                                border: solid white;
+                                border-width: 0 2px 2px 0;
+                                transform: rotate(45deg);
+                                top: 2px;
+                                left: 7px; 
+                            }
+                        }
+                    }    
                 }
             }
 

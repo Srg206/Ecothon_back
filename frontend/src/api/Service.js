@@ -23,7 +23,11 @@ export default class SendServer{
         return await axios.post(`${baseUrl}/auth/create_user`, {
             'email': email,
             'password': password
-        }).then(response => response.data).catch(error => console.log("Error creating user: ", error));
+        }, { 
+        headers: {
+            'Content-Type': 'application/json',
+        }
+        },).then(response => response.data).catch(error => console.log("Error creating user: ", error));
     }
 
     //* Функция для сохранения информации о пользователе

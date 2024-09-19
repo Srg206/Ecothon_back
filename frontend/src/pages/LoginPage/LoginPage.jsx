@@ -12,7 +12,10 @@ import data from '../../data/data'
 
 import ellipse1 from '../../shared/assets/Ellipse49.svg'
 import ellipse2 from '../../shared/assets/Ellipse50.svg'
+import vk from '../../shared/assets/vk.svg'
 import SendServer from '../../api/Service'
+
+
 
 function LoginPage() {
 
@@ -69,14 +72,20 @@ function LoginPage() {
         <LogoComponent/>
         {
           step === 'login'
-          ? <FormLogin 
-              onLoginSuccess={handleLoginSuccess}
-              email={email}
-              password={password}
-              setEmail={setEmail}
-              setPassword={setPassword}
-              onSwapLoginToRegistration={handleSwapLoginToRegistration}
-            />
+          ? <div className={cl.loginForm}>
+              <FormLogin 
+                onLoginSuccess={handleLoginSuccess}
+                email={email}
+                password={password}
+                setEmail={setEmail}
+                setPassword={setPassword}
+                onSwapLoginToRegistration={handleSwapLoginToRegistration}
+              />
+              <div className={cl.loginForm__vk}>
+                <div className={cl.vk__text}>Войти через</div>
+                <img src={vk} alt="vk"/>
+              </div>
+            </div>
           : step === 'registration'
           ? <FormRegistration title="Регистрация" onRegistrationSuccess={handleRegistrationSuccess} />
           : step === 'dataInfo'

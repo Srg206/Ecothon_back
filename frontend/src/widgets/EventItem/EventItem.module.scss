@@ -33,6 +33,26 @@
             filter: invert(56%) sepia(42%) saturate(5590%) hue-rotate(329deg) brightness(90%) contrast(100%);
             opacity: 1;
         }
+
+        .eventItemImage__point{
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            display: flex;
+            align-items: center;
+            padding: 4px 10px;
+            background-color: rgba(255, 255, 255, 0.6);
+            gap: 8px;
+            border-radius: 5px;
+            font-family: "Gilroy Medium";
+            font-size: 20px;
+
+
+            >img{
+                width: 21px;
+                height: 24px;
+            }
+        }
     }
 
     .eventItem__content{
