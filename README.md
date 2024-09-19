@@ -9,7 +9,7 @@ Team Members:
 4) **Ксения Никандрова** - Product Manager
 5) **Кирилл Рыжичкин** - ML Engineer
 
-Презентация: [тык](https://google.com)
+Презентация: [тык](https://drive.google.com/file/d/1s3vtYtUKzb1Q-BK6fU4XF58eB7t33CJX/view?usp=sharing)
 
 Веб-сервис: [тык](https://green.itatmisis.ru/)
 
