@@ -105,10 +105,28 @@ curl -X POST   http://green.itatmisis.ru:8002/event/add_event \
 ## 6) get_events   в зависимости от того есть ли header Authorization будет пресонализированная либо не персонализированная лента мероприятий. amount - сколько мероприйтий надо вернуть
 curl -X GET http://green.itatmisis.ru:8002/event/get_events/{amount} \
   -H "Authorization: Bearer <your_token>" \
-  
+
+    возвращает список Event[]
 
 ## 7) Запрос к /get_event/{event_id} получение всей информации об event по id
 curl -X GET http://green.itatmisis.ru:8002/event/get_event/{event_id}
+
+ возвращает Event
+
+Event{
+  "Title": "string",
+  "Date": "string",
+  "Address": "string",
+  "Organization": "string",
+  "Image": "string",
+  "Tags": "[]string",
+  "Description": "string",
+  "CoordX": "float32",
+  "CoordY": "float32"
+}
+
+
+ 
 
 
 тут описание ручек
