@@ -15,6 +15,7 @@ import CollectionPage from '../pages/CollectionPage/CollectionPage';
 import PointsPage from '../pages/PointsPage/PointsPage';
 import ModalWindow from '../shared/modules/ModalWindow/ModalWindow';
 import ChargePoints from '../widgets/ChargePoints/ChargePoints';
+import React from 'react';
 
 function App() {
   const location = useLocation(); 

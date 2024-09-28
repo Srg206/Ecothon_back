@@ -13,7 +13,7 @@ func main() {
 	token.TStrg.Init()
 	initdb.MustInitDb()
 	routes.InitRoutes()
-	routes.Router.Run(":8002")
+	routes.Router.Run("0.0.0.0:8002")
 }
 
 func InitML() {

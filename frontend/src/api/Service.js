@@ -15,7 +15,7 @@ export default class SendServer{
 
     //* Функция для теста
     static async ping(){
-        return await axios.get("http://194.87.102.215:8002/PING");
+        return await axios.get("http://127.0.0.1:8002/PING");
     }
 
     //* Функция для регистрации нового пользователя по почте и паролю

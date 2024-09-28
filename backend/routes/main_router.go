@@ -16,21 +16,27 @@ var Router = gin.Default()
 func InitRoutes() {
 	//Router.Use(corsMiddleware())
 	Router.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"https://green.itatmisis.ru/", "http://green.itatmisis.ru/", "http://46.183.163.192/", "https://46.183.163.192/"},
+		AllowOrigins:     []string{"http://localhost:3000", "http://localhost:3000/"},
 		AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"},
 		AllowHeaders:     []string{"*"},
 		ExposeHeaders:    []string{"*"},
 		AllowCredentials: true,
-		AllowOriginFunc: func(origin string) bool {
-			return origin == "*"
-		},
-		MaxAge: 12 * time.Hour,
+		MaxAge:           12 * time.Hour,
 	}))
 
 	Router.GET("/PING", func(c *gin.Context) { c.JSON(http.StatusOK, "PONG") })
 
 	//AUTH
 	auth_route := Router.Group("/auth")
+	auth_route.Use(cors.New(cors.Config{
+		AllowOrigins:     []string{"http://localhost:3000", "http://localhost:3000/"},
+		AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"},
+		AllowHeaders:     []string{"*"},
+		ExposeHeaders:    []string{"*"},
+		AllowCredentials: true,
+		MaxAge:           12 * time.Hour,
+	}))
+
 	auth_route.POST("/create_user", func(c *gin.Context) { auth.Create_user(c) })
 	auth_route.POST("/login", func(c *gin.Context) { auth.Login(c) })
 	auth_route.POST("/save_user_info", func(c *gin.Context) { auth.SaveUserInfo(c) })
